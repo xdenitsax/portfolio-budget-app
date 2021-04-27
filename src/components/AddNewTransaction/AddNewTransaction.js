@@ -1,47 +1,57 @@
 import React, { useState } from 'react'
 import './AddNewTransaction.css'
-const AddNewTransaction = () => {
+const AddNewTransaction = (getText, getAmount) => {
   const [text, setText] = useState('')
   const [amount, setAmount] = useState(0)
+  const [show, setShow] = useState(false)
 
   const handleEvent = e => {
     e.preventDefault()
+    setShow(true)
   }
-  const getTheText = getText => {
-    setText(getText)
+  const getTheText = e => {
+    setText(e.target.value)
   }
 
   const getTheAmount = e => {
-    setAmount(e)
+    setAmount(e.target.value)
   }
-  console.log('text', text)
-  console.log('number', amount)
+  const newTransaction = () => {
+    id: Math.floor(Math.random() * 1000000000),
+    text,
+    amount: +amount
+  }
+
   return (
-    <div className='div-add-new-transaction'>
-      <form>
-        <h1 className='text-add-new-transaction '>Add new trasaction:</h1>
-        <p className='p-add-new-transaction'>Text</p>
-        <input
-          type='text'
-          className='text'
-          onChange={getText => getTheText(getText)}
-        ></input>
-        <p className='amount-add-new-transaction'>
-          Amount <br />
-          (negative-expense, positive+income)
-        </p>
-        <input
-          type='amount'
-          className='amount'
-          onChange={e => getTheAmount(e)}
-        ></input>
-        <button
-          className='button-add-transaction'
-          onClick={e => handleEvent(e)}
-        >
-          Add transaction
-        </button>
-      </form>
+    <div>
+      <div className='div-add-new-transaction'>
+        <form>
+          <h2 className='text-add-new-transaction '>Add new trasaction:</h2>
+          <p className='p-add-new-transaction'>Text</p>
+          <input
+            type='text'
+            className='text'
+            onChange={e => getTheText(e)}
+            value={text}
+          ></input>
+          <p className='amount-add-new-transaction'>
+            Amount <br />
+            (negative-expense, positive+income)
+          </p>
+          <input
+            type='amount'
+            className='amount'
+            onChange={e => getTheAmount(e)}
+            value={amount}
+          ></input>
+          <button
+            className='button-add-transaction'
+            onClick={e => handleEvent(e)}
+          >
+            Add transaction
+          </button>
+        </form>
+      </div>
     </div>
   )
 }
