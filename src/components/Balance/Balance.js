@@ -4,7 +4,7 @@ import './Balance.css'
 const Balance = () => {
   return (
     <div className='div-balance'>
-      <p className='div-text'>YOUR BALANCE</p>
+      <h2 className='div-text'>YOUR BALANCE</h2>
       <p className='balance-amount-money'>$100</p>
     </div>
   )

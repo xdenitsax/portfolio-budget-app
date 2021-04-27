@@ -4,7 +4,7 @@ import './History.css'
 const History = () => {
   return (
     <div className='history-div'>
-      <p className='text-history'>History</p>
+      <h2 className='text-history'>History</h2>
       <div className='fist-history-div'>
         <p className='fist-history-text'></p>
       </div>

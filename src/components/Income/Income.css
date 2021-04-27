@@ -48,7 +48,7 @@
   text-align: left;
   margin-left: 60px;
   color: #070903;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Raleway', sans-serif;
   font-size: 18px;
 }
 @media screen and (max-width: 1000px) {
@@ -88,7 +88,7 @@
   margin-left: 45px;
   margin-top: 10px;
   color: #96cb40;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Raleway', sans-serif;
   font-size: 25px;
 }
 @media screen and (max-width: 1000px) {
@@ -160,7 +160,7 @@
   text-align: left;
   margin-left: 60px;
   color: #070903;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Raleway', sans-serif;
   font-size: 18px;
 }
 @media screen and (max-width: 1000px) {
@@ -199,7 +199,7 @@
   margin-left: 60px;
   margin-top: 10px;
   color: #fa112e;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Raleway', sans-serif;
   font-size: 25px;
 }
 @media screen and (max-width: 1000px) {

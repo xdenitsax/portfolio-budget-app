@@ -16,11 +16,11 @@ const AddNewTransaction = (getText, getAmount) => {
   const getTheAmount = e => {
     setAmount(e.target.value)
   }
-  const newTransaction = () => {
-    id: Math.floor(Math.random() * 1000000000),
-    text,
-    amount: +amount
-  }
+  // const newTransaction = () => {
+  //   id: Math.floor(Math.random() * 1000000000),
+  //   text,
+  //   amount: +amount
+  // }
 
   return (
     <div>
