@@ -1,0 +1,48 @@
+.div-balance {
+  margin-top: 100px;
+  align-items: center;
+  position: absolute;
+  left: 20%;
+}
+
+@media screen and (max-width: 780px) {
+  .div-balance {
+    height: 100px;
+    left: 18%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .div-balance {
+    height: 100px;
+    left: 15%;
+  }
+}
+
+.div-text {
+  text-align: left;
+  margin-left: 15px;
+  color: #070903;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+@media screen and (max-width: 500px) {
+  .div-text {
+    font-size: 22px;
+  }
+}
+
+.balance-amount-money {
+  text-align: left;
+  margin-left: 15px;
+  color: #070903;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 30px;
+  margin-top: 0;
+}
+@media screen and (max-width: 500px) {
+  .balance-amount-money {
+    font-size: 25px;
+  }
+}

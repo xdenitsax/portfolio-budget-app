@@ -1,0 +1,234 @@
+.income-expense-div {
+  margin-top: 230px;
+  height: 130px;
+  width: 40%;
+  position: absolute;
+  left: 16%;
+}
+@media screen and (max-width: 1000px) {
+  .income-expense-div {
+    height: 140px;
+    width: 50%;
+    left: 16%;
+    margin-top: 220px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .income-expense-div {
+    height: 140px;
+    width: 60%;
+    left: 15%;
+    margin-top: 210px;
+  }
+}
+
+@media screen and (max-width: 542px) {
+  .income-expense-div {
+    height: 140px;
+    width: 60%;
+    left: 13%;
+    margin-top: 220px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .income-expense-div {
+    height: 140px;
+    width: 60%;
+    left: 14%;
+    margin-top: 220px;
+  }
+}
+.income-div {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.income-text {
+  text-align: left;
+  margin-left: 60px;
+  color: #070903;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 18px;
+}
+@media screen and (max-width: 1000px) {
+  .income-text {
+    margin-left: 40px;
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 780px) {
+  .income-text {
+    margin-left: 20px;
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 548px) {
+  .income-text {
+    margin-left: 20px;
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 520px) {
+  .income-text {
+    margin-left: 10px;
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 435px) {
+  .income-text {
+    margin-left: 5px;
+    font-size: 10px;
+  }
+}
+
+.income-amount {
+  text-align: left;
+  margin-left: 45px;
+  margin-top: 10px;
+  color: #96cb40;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 25px;
+}
+@media screen and (max-width: 1000px) {
+  .income-amount {
+    margin-left: 40px;
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 780px) {
+  .income-amount {
+    margin-left: 20px;
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 548px) {
+  .income-amount {
+    margin-left: 20px;
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 520px) {
+  .income-amount {
+    margin-left: 10px;
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 435px) {
+  .income-amount {
+    margin-left: 5px;
+    font-size: 10px;
+  }
+}
+
+.expense-div {
+  display: inline-block;
+  margin-left: 120px;
+}
+@media screen and (max-width: 1000px) {
+  .expense-div {
+    margin-left: 90px;
+  }
+}
+@media screen and (max-width: 780px) {
+  .expense-div {
+    margin-left: 120px;
+  }
+}
+@media screen and (max-width: 548px) {
+  .expense-div {
+    margin-left: 100px;
+  }
+}
+@media screen and (max-width: 362px) {
+  .expense-div {
+    margin-left: 80px;
+  }
+}
+@media screen and (max-width: 294px) {
+  .expense-div {
+    margin-left: 60px;
+  }
+}
+@media screen and (max-width: 256px) {
+  .expense-div {
+    margin-left: 40px;
+  }
+}
+.expense-text {
+  text-align: left;
+  margin-left: 60px;
+  color: #070903;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 18px;
+}
+@media screen and (max-width: 1000px) {
+  .expense-text {
+    margin-left: 60px;
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 760px) {
+  .expense-text {
+    margin-left: 20px;
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 548px) {
+  .expense-text {
+    margin-left: 20px;
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 520px) {
+  .expense-text {
+    margin-left: 10px;
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 435px) {
+  .expense-text {
+    margin-left: 0;
+    font-size: 10px;
+  }
+}
+
+.expense-amount {
+  text-align: left;
+  margin-left: 60px;
+  margin-top: 10px;
+  color: #fa112e;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 25px;
+}
+@media screen and (max-width: 1000px) {
+  .expense-amount {
+    margin-left: 70px;
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 760px) {
+  .expense-amount {
+    margin-left: 20px;
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 548px) {
+  .expense-amount {
+    margin-left: 30px;
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 520px) {
+  .expense-amount {
+    margin-left: 10px;
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 435px) {
+  .expense-amount {
+    margin-left: 1px;
+    font-size: 10px;
+  }
+}

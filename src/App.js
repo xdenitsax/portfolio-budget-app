@@ -1,7 +1,15 @@
+import Header from './components/Header/Header'
+import Balance from './components/Balance/Balance'
+import Income from './components/Income/Income'
+import History from './components/History/History'
+
 const App = () => {
   return (
     <div>
-      <p>I will be a budget app</p>
+      <Header />
+      <Balance />
+      <Income />
+      <History />
     </div>
   )
 }

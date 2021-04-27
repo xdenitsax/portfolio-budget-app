@@ -1,0 +1,58 @@
+.div-add-new-transaction {
+  margin-top: 670px;
+  align-items: center;
+  position: absolute;
+  left: 20%;
+}
+
+.text-add-new-transaction {
+  text-align: left;
+  margin-left: 16px;
+  color: #070903;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 23px;
+  margin-top: 0;
+}
+.p-add-new-transaction {
+  text-align: left;
+  margin-left: 5px;
+  color: #070903;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 17px;
+  margin-top: 0;
+}
+.amount-add-new-transaction {
+  text-align: left;
+  margin-left: 5px;
+  color: #070903;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 17px;
+  margin-top: 10px;
+}
+
+.text {
+  width: 60%;
+  height: 30px;
+  border-style: none;
+  background-color: #f3f9ea;
+}
+
+.amount {
+  width: 60%;
+  height: 30px;
+  border-style: none;
+  background-color: #f3f9ea;
+}
+
+.button-add-transaction {
+  margin-top: 10px;
+  margin-left: 50px;
+  margin-bottom: 100px;
+  width: 100px;
+  height: 40px;
+  border-color: #f3f9ea;
+  background-color: #a7d35d;
+  border-radius: 3px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 12px;
+}
