@@ -23,125 +23,41 @@
 
 .fist-history-div {
   background-color: #f3f9ea;
-  width: 500px;
-  height: 50px;
+  width: 250px;
+  height: 40px;
   border-color: #f3f9ea;
   border-style: solid;
   border-radius: 1px;
   border-radius: 5px;
-  color: #070903;
-  font-family: 'Raleway', sans-serif;
-  font-size: 15px;
-}
-
-@media screen and (max-width: 900px) {
-  .fist-history-div {
-    width: 400px;
-  }
-}
-@media screen and (max-width: 600px) {
-  .fist-history-div {
-    width: 300px;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .fist-history-div {
-    width: 250px;
-  }
-}
-@media screen and (max-width: 400px) {
-  .fist-history-div {
-    width: 200px;
-  }
-}
-@media screen and (max-width: 300px) {
-  .fist-history-div {
-    width: 150px;
-  }
-}
-
-/*    SECOND DIV FOR HISTORY       */
-
-.second-history-div {
-  background-color: #f3f9ea;
-  width: 500px;
-  height: 50px;
-  border-color: #f3f9ea;
-  border-style: solid;
-  border-radius: 1px;
-  border-radius: 5px;
-  color: #070903;
   font-family: 'Raleway', sans-serif;
   font-size: 15px;
   margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 @media screen and (max-width: 900px) {
-  .second-history-div {
+  .fist-history-div {
     width: 400px;
   }
 }
 @media screen and (max-width: 600px) {
-  .second-history-div {
+  .fist-history-div {
     width: 300px;
   }
 }
 
 @media screen and (max-width: 500px) {
-  .second-history-div {
+  .fist-history-div {
     width: 250px;
   }
 }
 @media screen and (max-width: 400px) {
-  .second-history-div {
+  .fist-history-div {
     width: 200px;
   }
 }
 @media screen and (max-width: 300px) {
-  .second-history-div {
-    width: 150px;
-  }
-}
-
-/*    THIRD DIV FOR HISTORY       */
-.third-history-div {
-  background-color: #f3f9ea;
-  width: 500px;
-  height: 50px;
-  border-color: #f3f9ea;
-  border-style: solid;
-  border-radius: 1px;
-  border-radius: 5px;
-  color: #070903;
-  font-family: 'Raleway', sans-serif;
-  font-size: 15px;
-  margin-top: 10px;
-}
-
-@media screen and (max-width: 900px) {
-  .third-history-div {
-    width: 400px;
-  }
-}
-@media screen and (max-width: 600px) {
-  .third-history-div {
-    width: 300px;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .third-history-div {
-    width: 250px;
-  }
-}
-@media screen and (max-width: 400px) {
-  .third-history-div {
-    width: 200px;
-  }
-}
-@media screen and (max-width: 300px) {
-  .third-history-div {
+  .fist-history-div {
     width: 150px;
   }
 }

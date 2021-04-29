@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+// import { GlobalProvider } from '../contex/GlobalState'
 import './AddNewTransaction.css'
+
 const AddNewTransaction = (getText, getAmount) => {
   const [text, setText] = useState('')
-  const [amount, setAmount] = useState(0)
+  const [amount, setAmount] = useState('')
   const [show, setShow] = useState(false)
 
   const handleEvent = e => {

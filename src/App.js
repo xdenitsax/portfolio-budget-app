@@ -1,16 +1,16 @@
 import Header from './components/Header/Header'
-import Balance from './components/Balance/Balance'
-import Income from './components/Income/Income'
-import History from './components/History/History'
-import AddnewTransaction from './components/AddNewTransaction/AddNewTransaction'
+import LoginPage from './components/LoginPage/LoginPage'
+import Register from './components/Register/Register'
+import FirstPage from './components/FirstPage/FirstPage'
+import './App.css'
+
 const App = () => {
   return (
-    <div>
+    <div className='app-div'>
       <Header />
-      <Balance />
-      <Income />
-      <History />
-      <AddnewTransaction />
+      <FirstPage />
+      {/* <Register /> */}
+      {/* <LoginPage /> */}
     </div>
   )
 }

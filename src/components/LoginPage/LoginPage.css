@@ -1,0 +1,66 @@
+.form-div {
+  text-align: center;
+  margin-top: 300px;
+}
+.text-username {
+  color: #070903;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.input-username {
+  background-color: #f3f9ea;
+  width: 250px;
+  height: 40px;
+  border-color: #f3f9ea;
+  border-style: solid;
+  border-radius: 1px;
+  border-radius: 5px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.input-username:after {
+  text-decoration: none;
+}
+.text-password {
+  color: #070903;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.input-password {
+  background-color: #f3f9ea;
+  width: 250px;
+  height: 40px;
+  border-color: #f3f9ea;
+  border-style: solid;
+  border-radius: 1px;
+  border-radius: 5px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.input-button {
+  background-color: #a7d35d;
+  width: 100px;
+  height: 40px;
+  border-color: #f3f9ea;
+  border-style: solid;
+  border-radius: 1px;
+  border-radius: 5px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+input:focus {
+  outline: none;
+}

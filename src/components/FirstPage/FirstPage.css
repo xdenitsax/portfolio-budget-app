@@ -1,0 +1,39 @@
+.form-firstPage {
+  margin-top: 200px;
+  text-align: center;
+}
+
+.button-register-page {
+  background-color: #a7d35d;
+  width: 250px;
+  height: 60px;
+  border-color: #f3f9ea;
+  border-style: solid;
+  border-radius: 1px;
+  border-radius: 5px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.button-signin-page {
+  background-color: #a7d35d;
+  width: 150px;
+  height: 60px;
+  border-color: #f3f9ea;
+  border-style: solid;
+  border-radius: 1px;
+  border-radius: 5px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.or-firstPage {
+  color: #070903;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
+}

@@ -1,0 +1,145 @@
+.form-expense-div {
+  text-align: center;
+  margin-top: 50px;
+}
+.text-expense-first-name {
+  color: #070903;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.input-first-name {
+  background-color: #f3f9ea;
+  width: 250px;
+  height: 40px;
+  border-color: #f3f9ea;
+  border-style: solid;
+  border-radius: 1px;
+  border-radius: 5px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+.text-expense-last-name {
+  color: #070903;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.input-last-name {
+  background-color: #f3f9ea;
+  width: 250px;
+  height: 40px;
+  border-color: #f3f9ea;
+  border-style: solid;
+  border-radius: 1px;
+  border-radius: 5px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+.email-expense-username {
+  color: #070903;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.input-expense-email {
+  background-color: #f3f9ea;
+  width: 250px;
+  height: 40px;
+  border-color: #f3f9ea;
+  border-style: solid;
+  border-radius: 1px;
+  border-radius: 5px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.text-expense-username {
+  color: #070903;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.input-expense-username {
+  background-color: #f3f9ea;
+  width: 250px;
+  height: 40px;
+  border-color: #f3f9ea;
+  border-style: solid;
+  border-radius: 1px;
+  border-radius: 5px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+.password-expense-username {
+  color: #070903;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.input-expense-password {
+  background-color: #f3f9ea;
+  width: 250px;
+  height: 40px;
+  border-color: #f3f9ea;
+  border-style: solid;
+  border-radius: 1px;
+  border-radius: 5px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+.confirm-password-expense-username {
+  color: #070903;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.input-confirm-password-expense-username {
+  background-color: #f3f9ea;
+  width: 250px;
+  height: 40px;
+  border-color: #f3f9ea;
+  border-style: solid;
+  border-radius: 1px;
+  border-radius: 5px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+.button-regiter {
+  background-color: #a7d35d;
+  width: 100px;
+  height: 40px;
+  border-color: #f3f9ea;
+  border-style: solid;
+  border-radius: 1px;
+  border-radius: 5px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
