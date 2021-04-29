@@ -2,7 +2,7 @@ import React from 'react'
 import './History.css'
 
 const History = () => {
-  const createNewDiv =  => [...Array()]
+  const createNewDiv = () => [...Array()]
 
   return (
     <div className='history-div'>
