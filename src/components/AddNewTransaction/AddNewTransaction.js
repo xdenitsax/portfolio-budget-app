@@ -1,15 +1,40 @@
 import React, { useState } from 'react'
-// import { GlobalProvider } from '../contex/GlobalState'
 import './AddNewTransaction.css'
+
+import Balance from '../Balance/Balance'
+import History from '../History/History'
+import Income from '../Income/Income'
 
 const AddNewTransaction = (getText, getAmount) => {
   const [text, setText] = useState('')
   const [amount, setAmount] = useState('')
-  const [show, setShow] = useState(false)
+
+  /// Post request to the Server///
+  const postTransaction = async () => {
+    const requestPostOptions = {
+      method: 'POST',
+      header: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+    }
+    try {
+      const response = await fetch(
+        'http://localhost:3000/postTransaction',
+        requestPostOptions
+      )
+      const json = await response.json()
+      console.log(json)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  ////////////////////////////////
 
   const handleEvent = e => {
     e.preventDefault()
-    setShow(true)
+    postTransaction()
   }
   const getTheText = e => {
     setText(e.target.value)
@@ -26,6 +51,9 @@ const AddNewTransaction = (getText, getAmount) => {
 
   return (
     <div>
+      <Balance />
+      <Income />
+      <History />
       <div className='div-add-new-transaction'>
         <form>
           <h2 className='text-add-new-transaction '>Add new trasaction:</h2>

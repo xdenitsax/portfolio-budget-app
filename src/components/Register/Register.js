@@ -1,9 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Register.css'
 
 const Register = () => {
-  const submitButton = e => {
-    e.preventDefault(e)
+  const showTheMessage = e => {
+    alert('You are now registered in Expense Tracker')
   }
   return (
     <>
@@ -29,11 +30,14 @@ const Register = () => {
           className='input-confirm-password-expense-username'
         ></input>
         <br />
-        <input
-          type='button'
-          value='Register!'
-          className='button-regiter'
-        ></input>
+        <Link to='./signin'>
+          <input
+            type='button'
+            value='Register!'
+            className='button-register'
+            onClick={e => showTheMessage(e)}
+          ></input>
+        </Link>
       </form>
     </>
   )

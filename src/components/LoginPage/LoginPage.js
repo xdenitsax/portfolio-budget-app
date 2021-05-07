@@ -1,8 +1,5 @@
-import React, { useState } from 'react'
-import AddNewTransaction from '../AddNewTransaction/AddNewTransaction'
-import Balance from '../Balance/Balance'
-import History from '../History/History'
-import Income from '../Income/Income'
+import React from 'react'
+import { Link } from 'react-router-dom'
 import './LoginPage.css'
 
 const LoginPage = () => {
@@ -18,12 +15,14 @@ const LoginPage = () => {
         <p className='text-password'>Password:</p>
         <input type='password' className='input-password'></input>
         <br />
-        <input
-          type='button'
-          value='Sumbit'
-          className='input-button'
-          onChange={e => submitButton(e)}
-        ></input>
+        <Link to='/add-transaction'>
+          <input
+            type='button'
+            value='Sumbit'
+            className='input-button'
+            onChange={e => submitButton(e)}
+          ></input>
+        </Link>
       </form>
     </>
   )
