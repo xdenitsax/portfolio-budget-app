@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { addTransaction } from '../../../redux/actions/transactionForm'
 import './Home.css'
 
 import Balance from './Balance/Balance'
@@ -6,6 +8,11 @@ import History from './History/History'
 import Income from './Income/Income'
 
 const Home = (getText, getAmount) => {
+  // const text = useSelector(state => state.transactionForm.description)
+  // const amount = useSelector(state => state.transactionForm.amount)
+
+  const dispatch = useDispatch()
+
   const [text, setText] = useState('')
   const [amount, setAmount] = useState('')
 
@@ -32,16 +39,17 @@ const Home = (getText, getAmount) => {
 
   ////////////////////////////////
 
-  const handleEvent = e => {
+  const handleSubmit = e => {
     e.preventDefault()
-    postTransaction()
+    // postTransaction()
+    dispatch(addTransaction(text, amount))
   }
-  const getTheText = e => {
-    setText(e.target.value)
+  const handleTextChange = event => {
+    setText(event.target.value)
   }
 
-  const getTheAmount = e => {
-    setAmount(e.target.value)
+  const handleAmountChange = event => {
+    setAmount(event.target.value)
   }
   // const newTransaction = () => {
   //   id: Math.floor(Math.random() * 1000000000),
@@ -61,7 +69,7 @@ const Home = (getText, getAmount) => {
           <input
             type='text'
             className='text'
-            onChange={e => getTheText(e)}
+            onChange={event => handleTextChange(event)}
             value={text}
           ></input>
           <p className='amount-add-new-transaction'>
@@ -71,12 +79,12 @@ const Home = (getText, getAmount) => {
           <input
             type='amount'
             className='amount'
-            onChange={e => getTheAmount(e)}
+            onChange={event => handleAmountChange(event)}
             value={amount}
           ></input>
           <button
             className='button-add-transaction'
-            onClick={e => handleEvent(e)}
+            onClick={e => handleSubmit(e)}
           >
             Add transaction
           </button>
