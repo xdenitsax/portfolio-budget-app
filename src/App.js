@@ -1,8 +1,8 @@
-import LoginPage from './components/LoginPage/LoginPage'
-import Register from './components/Register/Register'
-import FirstPage from './components/FirstPage/FirstPage'
+import LoginPage from './components/Pages/LoginPage/LoginPage'
+import Register from './components/Pages/Register/Register'
+import LandingPage from './components/Pages/LandingPage/LandingPage'
 import Header from './components/Header/Header'
-import AddNewTransaction from './components/AddNewTransaction/AddNewTransaction'
+import Home from './components/Pages/Home/Home'
 import { BrowserRouter, Route } from 'react-router-dom'
 
 import './App.css'
@@ -13,10 +13,10 @@ const App = () => {
       <BrowserRouter>
         <div>
           <Header />
-          <Route path='/' exact component={FirstPage} />
+          <Route path='/' exact component={LandingPage} />
           <Route path='/signin' component={LoginPage} />
           <Route path='/register' component={Register} />
-          <Route path='/add-transaction' component={AddNewTransaction} />
+          <Route path='/add-transaction' component={Home} />
         </div>
       </BrowserRouter>
     </div>

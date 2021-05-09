@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import './AddNewTransaction.css'
+import './Home.css'
 
-import Balance from '../Balance/Balance'
-import History from '../History/History'
-import Income from '../Income/Income'
+import Balance from './Balance/Balance'
+import History from './History/History'
+import Income from './Income/Income'
 
-const AddNewTransaction = (getText, getAmount) => {
+const Home = (getText, getAmount) => {
   const [text, setText] = useState('')
   const [amount, setAmount] = useState('')
 
@@ -85,4 +85,4 @@ const AddNewTransaction = (getText, getAmount) => {
     </div>
   )
 }
-export default AddNewTransaction
+export default Home

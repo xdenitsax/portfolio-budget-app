@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import './FirstPage.css'
-const FirstPage = () => {
+import './LandingPage.css'
+const LandingPage = () => {
   return (
     <>
       <div className='form-firstPage'>
@@ -28,4 +28,4 @@ const FirstPage = () => {
   )
 }
 
-export default FirstPage
+export default LandingPage
