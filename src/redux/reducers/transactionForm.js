@@ -1,6 +1,6 @@
 import {
-  CREATE_TRANSACTION_SUCCESS,
   HANDLE_CHANGE_DESCRIPTION,
+  CREATE_TRANSACTION_FAILURE,
 } from '../actionTypes'
 
 const initialState = {
@@ -10,14 +10,8 @@ const initialState = {
 
 const transactionFormReducer = (state = initialState, action) => {
   switch (action.type) {
-    case CREATE_TRANSACTION_SUCCESS:
-      const { description, amount } = action
-      return {
-        ...state,
-        description,
-        amount,
-      }
-
+    case CREATE_TRANSACTION_FAILURE:
+      return state
     case HANDLE_CHANGE_DESCRIPTION:
       return { ...state, description: action.payload.value }
 

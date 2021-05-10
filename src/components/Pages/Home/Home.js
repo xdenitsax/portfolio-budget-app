@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { addTransaction } from '../../../redux/actions/transactionForm'
+import { postRequest } from '../../../redux/api'
 import './Home.css'
 
 import Balance from './Balance/Balance'
@@ -16,33 +16,9 @@ const Home = (getText, getAmount) => {
   const [text, setText] = useState('')
   const [amount, setAmount] = useState('')
 
-  /// Post request to the Server///
-  const postTransaction = async () => {
-    const requestPostOptions = {
-      method: 'POST',
-      header: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-    }
-    try {
-      const response = await fetch(
-        'http://localhost:3000/postTransaction',
-        requestPostOptions
-      )
-      const json = await response.json()
-      console.log(json)
-    } catch (err) {
-      console.log(err)
-    }
-  }
-
-  ////////////////////////////////
-
   const handleSubmit = e => {
     e.preventDefault()
-    // postTransaction()
-    dispatch(addTransaction(text, amount))
+    dispatch(postRequest(text, amount))
   }
   const handleTextChange = event => {
     setText(event.target.value)
