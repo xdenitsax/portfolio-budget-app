@@ -28,3 +28,13 @@ export const handleChangeDescription = value => {
     },
   }
 }
+
+export const createTransaction = (text, amount) => {
+  return {
+    type: CREATE_TRANSACTION_SUCCESS,
+    payload: {
+      text,
+      amount,
+    },
+  }
+}

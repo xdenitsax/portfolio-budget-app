@@ -1,14 +1,18 @@
 import { CREATE_TRANSACTION_SUCCESS } from '../actionTypes'
 
 const historyReducer = (state = [], action) => {
+  console.log(action)
   switch (action.type) {
     case 'GET_HISTORY_SUCCESS':
       return state
     case CREATE_TRANSACTION_SUCCESS: {
-      const { description, amount, id, date } = action
-      const newTransaction = { description, amount, id, date }
-      return [...state, newTransaction]
+      return [...state, action.payload]
     }
+    // case CREATE_TRANSACTION_SUCCESS: {
+    //   const { description, amount, id, date } = action
+    //   const newTransaction = { description, amount, id, date }
+    //   return [...state, newTransaction]
+    // }
 
     default:
       return state

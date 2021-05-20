@@ -4,12 +4,14 @@
 }
 
 .button-register-page {
-  background-color: #a7d35d;
+  border-radius: 1rem;
+  color: #ebf5da;
+  perspective: 300px;
+  box-shadow: 15px 22px 45px rgba(0, 0, 0, 0.3);
   width: 250px;
   height: 60px;
-  border-color: #f3f9ea;
-  border-style: solid;
-  border-radius: 1px;
+  background-color: rgba(192, 192, 192, 0.062);
+  border-style: hidden;
   border-radius: 5px;
   font-family: 'Raleway', sans-serif;
   font-size: 15px;
@@ -18,12 +20,14 @@
 }
 
 .button-signin-page {
-  background-color: #a7d35d;
-  width: 150px;
+  color: #ebf5da;
+  border-radius: 1rem;
+  perspective: 300px;
+  box-shadow: 15px 22px 45px rgba(0, 0, 0, 0.3);
+  width: 250px;
   height: 60px;
-  border-color: #f3f9ea;
-  border-style: solid;
-  border-radius: 1px;
+  background-color: rgba(192, 192, 192, 0.062);
+  border-style: hidden;
   border-radius: 5px;
   font-family: 'Raleway', sans-serif;
   font-size: 15px;
@@ -31,7 +35,7 @@
   margin-bottom: 20px;
 }
 .or-firstPage {
-  color: #070903;
+  color: #ebf5da;
   font-family: 'Raleway', sans-serif;
   font-size: 20px;
   margin-top: 0;

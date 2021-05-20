@@ -1,3 +1,21 @@
 html {
-  background-color: #fcfdf9;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  background-image: linear-gradient(
+    to right bottom,
+    #0b1c45,
+    #0e214d,
+    #122556,
+    #152a5e,
+    #192f67,
+    #192f67,
+    #192f67,
+    #192f67,
+    #152a5e,
+    #122556,
+    #0e214d,
+    #0b1c45
+  );
 }

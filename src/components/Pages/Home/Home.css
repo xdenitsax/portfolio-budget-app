@@ -1,40 +1,244 @@
-.div-add-new-transaction {
-  margin-top: 670px;
+/*     ---------------------------------------------------------------      */
+/*                                Whole body div                            */
+/*     ---------------------------------------------------------------      */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.home-div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
-  position: absolute;
-  left: 20%;
+  justify-content: center;
+}
+@media screen and (min-width: 1680px) {
+  .home-div {
+    padding-left: 50px;
+  }
 }
 
-.text-add-new-transaction {
-  text-align: left;
-  margin-left: 16px;
-  color: #070903;
-  font-family: 'Raleway', sans-serif;
-  font-size: 20px;
-  margin-top: 0;
+/*     ---------------------------------------------------------------      */
+/*                                Your Balance                              */
+/*     ---------------------------------------------------------------      */
+.div-balance {
+  order: 0;
+  height: 200px;
+  width: 350px;
+  margin-right: 70px;
+  border-radius: 1rem;
+  perspective: 300px;
+  box-shadow: 10px 22px 45px rgba(0, 0, 0, 0.3);
 }
-.p-add-new-transaction {
-  text-align: left;
-  margin-left: 5px;
-  color: #070903;
-  font-family: 'Raleway', sans-serif;
-  font-size: 17px;
-  margin-top: 0;
+/* backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(10px);
+  transform: perspective(800px) rotateY(1deg) scale(0.8) rotateX(1deg);
+  filter: blur(0.1px);
+  opacity: 0.7;
+  transition: 0.6s ease all;
 }
-.amount-add-new-transaction {
-  text-align: left;
-  margin-left: 5px;
-  color: #070903;
-  font-family: 'Raleway', sans-serif;
-  font-size: 17px;
+.div-balance:hover {
+  transform: perspective(800px) rotateY(-1deg) translateY(-50px) rotateX(1deg)
+    scale(1);
+  filter: blur(0);
+  opacity: 1;
+} */
+
+/*    -------------- The div mobile version ------------   */
+
+@media screen and (min-width: 1605px) {
+  .home-div {
+    margin-left: 200px;
+    padding-left: 100px;
+    margin-right: 30px;
+  }
+}
+
+/*    -------------- The div in the Balance mobile version ------------   */
+@media screen and (max-width: 670px) {
+  .div-balance {
+    margin-top: 40px;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .div-balance {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
+
+.div-text {
+  text-align: center;
+  color: #f3f9ea76;
+  font-family: 'Karla', sans-serif;
+  font-size: 25px;
+  margin-bottom: 4px;
+  margin-top: 30px;
+}
+/*    -------------- The text in the div in the Balance mobile version ------------   */
+@media screen and (max-width: 375px) {
+  .div-text {
+    font-size: 16px;
+  }
+}
+
+.balance-amount-money {
+  text-align: center;
+  color: white;
+  font-family: 'Karla', sans-serif;
+  font-size: 30px;
   margin-top: 10px;
 }
 
+/*     ---------------------------------------------------------------      */
+/*                             Income and Expenses                          */
+/*     ---------------------------------------------------------------      */
+.income-expense-div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.income-div {
+}
+
+.income-text {
+  color: #f3f9ea76;
+  font-family: 'Karla', sans-serif;
+  font-size: 22px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+/*    -------------- The text in the income in the Balance mobile version ------------   */
+@media screen and (max-width: 565px) {
+  .income-text {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 295px) {
+  .income-text {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 12px;
+  }
+}
+.income-amount {
+  text-align: center;
+  margin-top: 10px;
+  color: rgba(61, 255, 22, 0.769);
+  font-family: 'Karla', sans-serif;
+  font-size: 22px;
+}
+
+.expense-text {
+  color: #f3f9ea76;
+  font-family: 'Karla', sans-serif;
+  font-size: 22px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+/*    -------------- The text in the expense in the Balance mobile version ------------   */
+@media screen and (max-width: 565px) {
+  .expense-text {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 295px) {
+  .expense-text {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 12px;
+  }
+}
+
+.expense-amount {
+  text-align: center;
+  margin-top: 10px;
+  color: rgba(218, 0, 0, 0.838);
+  font-family: 'Karla', sans-serif;
+  font-size: 22px;
+}
+
+/*     ---------------------------------------------------------------      */
+/*                              Add Transaction                             */
+/*     ---------------------------------------------------------------      */
+
+.div-add-new-transaction {
+  order: 1;
+  border-radius: 1rem;
+  margin: 60px 0px 0 10px;
+  height: 350px;
+  width: 250px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  transform-style: preserve-3d;
+  perspective: 300px;
+  box-shadow: 15px 22px 45px rgba(0, 0, 0, 0.3);
+  /* backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(10px);
+  transform: perspective(400px) rotateY(1deg) scale(0.8) rotateX(1deg);
+  filter: blur(0.1px);
+  opacity: 0.7;
+  transition: 0.6s ease all; */
+}
+/* .div-add-new-transaction:hover {
+  transform: perspective(800px) rotateY(-1deg) translateY(-50px) rotateX(1deg)
+    scale(1);
+  backdrop-filter: blur(0px);
+  opacity: 100%;
+} */
+/* @media screen and (min-width: 1605px) {
+  .div-add-new-transaction {
+    margin-right: 400px;
+    margin-left: 100px;
+  }
+} */
+@media screen and (min-width: 1605px) {
+  .div-add-new-transaction {
+    margin-right: 300px;
+  }
+}
+.text-add-new-transaction {
+  text-align: center;
+  color: #f3f9ea76;
+  font-family: 'Karla', sans-serif;
+  font-size: 23px;
+}
+.p-add-new-transaction {
+  text-align: center;
+  color: #f3f9ea76;
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  margin-top: 30px;
+  margin-bottom: 5px;
+}
+.amount-add-new-transaction {
+  text-align: center;
+  color: #f3f9ea76;
+  font-family: 'Raleway', sans-serif;
+  font-size: 17px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
 .text {
-  width: 60%;
+  margin-left: 20px;
+  width: 200px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 19px;
+  color: #ebf5da;
   height: 30px;
-  border-style: none;
-  background-color: #f3f9ea;
+  border-style: hidden;
+  border-radius: 6px;
+  background-color: #ebf5da1e;
+  text-align: center;
 }
 
 .amount {
@@ -44,15 +248,171 @@
   background-color: #f3f9ea;
 }
 
+/* --------- Button add-transaction --------- */
 .button-add-transaction {
   margin-top: 10px;
-  margin-left: 50px;
-  margin-bottom: 100px;
-  width: 100px;
-  height: 40px;
-  border-color: #f3f9ea;
-  background-color: #a7d35d;
-  border-radius: 3px;
+  margin-bottom: 80px;
+  margin-left: 65px;
+  width: 120px;
+  height: 30px;
+  background-color: #ebf5da1d;
+  border-style: hidden;
+  border-radius: 10px;
+  color: #f3f9ea76;
   font-family: 'Raleway', sans-serif;
-  font-size: 12px;
+  font-size: 14px;
+  font-weight: bolder;
+}
+
+/*     ---------------------------------------------------------------      */
+/*                               SWITCH BUTTON                              */
+/*     ---------------------------------------------------------------      */
+.switch-div {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 38px;
+  height: 19px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #96cb40;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 13px;
+  width: 13px;
+  left: 4px;
+  bottom: 3.5px;
+  background-color: #ebf5dac9;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #fa112e;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #283f00;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(15px);
+  transform: translateX(15px);
+}
+
+/*  --------- Rounded sliders --------- */
+.slider.round {
+  border-radius: 34px;
+  border: hidden;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+  border: hidden;
+}
+/* --------- Text around the switch button --------- */
+.switch-text {
+  font-weight: bold;
+  text-align: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #f3f9ea76;
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+}
+
+.input-amount-switch {
+  background-color: #f3f9ea23;
+  width: 200px;
+  height: 30px;
+  border-style: hidden;
+  border-radius: 5px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+/*     ---------------------------------------------------------------      */
+/*                                   History                                */
+/*     ---------------------------------------------------------------      */
+.history-div {
+  order: 2;
+  margin-left: 300px;
+  margin-right: 300px;
+  align-self: flex-end;
+  margin-top: 50px;
+}
+@media screen and (min-width: 1605px) {
+  .history-div {
+    margin-left: 10px;
+  }
+}
+
+.text-history {
+  text-align: center;
+  color: #ebf5da;
+  font-family: 'Raleway', sans-serif;
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+/*      ------------------ The div in the HISTORY ------------------      */
+
+.fist-history-div {
+  align-items: center;
+  text-align: center;
+  background-color: #f3f9ea41;
+  width: 400px;
+  height: 40px;
+  border: hidden 1px;
+  border-radius: 9px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+}
+/*    -------------- The div in the HISTORY mobile version ------------   */
+@media screen and (max-width: 400px) {
+  .fist-history-div {
+    width: 300px;
+    height: 30px;
+  }
+}
+@media screen and (max-width: 315px) {
+  .fist-history-div {
+    width: 250px;
+    height: 30px;
+  }
+}
+
+@media screen and (max-width: 264px) {
+  .fist-history-div {
+    width: 200px;
+    height: 30px;
+  }
 }
