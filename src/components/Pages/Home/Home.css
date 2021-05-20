@@ -13,11 +13,6 @@
   align-items: center;
   justify-content: center;
 }
-@media screen and (min-width: 1680px) {
-  .home-div {
-    padding-left: 50px;
-  }
-}
 
 /*     ---------------------------------------------------------------      */
 /*                                Your Balance                              */
@@ -47,28 +42,12 @@
 
 /*    -------------- The div mobile version ------------   */
 
-@media screen and (min-width: 1605px) {
+/* @media screen and (min-width: 1605px) {
   .home-div {
     margin-left: 200px;
-    padding-left: 100px;
     margin-right: 30px;
   }
-}
-
-/*    -------------- The div in the Balance mobile version ------------   */
-@media screen and (max-width: 670px) {
-  .div-balance {
-    margin-top: 40px;
-    margin-left: 30px;
-    margin-right: 30px;
-  }
-}
-@media screen and (max-width: 400px) {
-  .div-balance {
-    margin-left: 5px;
-    margin-right: 5px;
-  }
-}
+} */
 
 .div-text {
   text-align: center;
@@ -77,12 +56,6 @@
   font-size: 25px;
   margin-bottom: 4px;
   margin-top: 30px;
-}
-/*    -------------- The text in the div in the Balance mobile version ------------   */
-@media screen and (max-width: 375px) {
-  .div-text {
-    font-size: 16px;
-  }
 }
 
 .balance-amount-money {
@@ -105,9 +78,6 @@
   margin-top: 20px;
 }
 
-.income-div {
-}
-
 .income-text {
   color: #f3f9ea76;
   font-family: 'Karla', sans-serif;
@@ -115,20 +85,7 @@
   margin-left: 20px;
   margin-right: 20px;
 }
-/*    -------------- The text in the income in the Balance mobile version ------------   */
-@media screen and (max-width: 565px) {
-  .income-text {
-    font-size: 16px;
-  }
-}
 
-@media screen and (max-width: 295px) {
-  .income-text {
-    margin-left: 10px;
-    margin-right: 10px;
-    font-size: 12px;
-  }
-}
 .income-amount {
   text-align: center;
   margin-top: 10px;
@@ -143,19 +100,6 @@
   font-size: 22px;
   margin-left: 20px;
   margin-right: 20px;
-}
-/*    -------------- The text in the expense in the Balance mobile version ------------   */
-@media screen and (max-width: 565px) {
-  .expense-text {
-    font-size: 16px;
-  }
-}
-@media screen and (max-width: 295px) {
-  .expense-text {
-    margin-left: 10px;
-    margin-right: 10px;
-    font-size: 12px;
-  }
 }
 
 .expense-amount {
@@ -200,11 +144,7 @@
     margin-left: 100px;
   }
 } */
-@media screen and (min-width: 1605px) {
-  .div-add-new-transaction {
-    margin-right: 300px;
-  }
-}
+
 .text-add-new-transaction {
   text-align: center;
   color: #f3f9ea76;
@@ -228,7 +168,7 @@
   margin-bottom: 15px;
 }
 
-.text {
+.textInput {
   margin-left: 20px;
   width: 200px;
   font-family: 'Raleway', sans-serif;
@@ -348,15 +288,10 @@ input:checked + .slider:before {
   font-size: 15px;
 }
 
-.input-amount-switch {
-  background-color: #f3f9ea23;
-  width: 200px;
-  height: 30px;
-  border-style: hidden;
-  border-radius: 5px;
-  font-family: 'Raleway', sans-serif;
-  font-size: 15px;
+.input-amount {
   margin-top: 10px;
+  margin-left: 0;
+  margin-right: 10px;
 }
 
 /*     ---------------------------------------------------------------      */
@@ -368,11 +303,6 @@ input:checked + .slider:before {
   margin-right: 300px;
   align-self: flex-end;
   margin-top: 50px;
-}
-@media screen and (min-width: 1605px) {
-  .history-div {
-    margin-left: 10px;
-  }
 }
 
 .text-history {
@@ -388,31 +318,14 @@ input:checked + .slider:before {
 .fist-history-div {
   align-items: center;
   text-align: center;
-  background-color: #f3f9ea41;
+  background-color: #ebf5da1e;
   width: 400px;
   height: 40px;
   border: hidden 1px;
   border-radius: 9px;
-  font-family: 'Raleway', sans-serif;
-  font-size: 15px;
-}
-/*    -------------- The div in the HISTORY mobile version ------------   */
-@media screen and (max-width: 400px) {
-  .fist-history-div {
-    width: 300px;
-    height: 30px;
-  }
-}
-@media screen and (max-width: 315px) {
-  .fist-history-div {
-    width: 250px;
-    height: 30px;
-  }
-}
-
-@media screen and (max-width: 264px) {
-  .fist-history-div {
-    width: 200px;
-    height: 30px;
-  }
+  color: #ebf5da;
+  font-family: 'Monserrat', sans-serif;
+  font-size: 25px;
+  font-weight: 100;
+  padding-top: 5px;
 }

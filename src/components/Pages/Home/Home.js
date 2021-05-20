@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 // import { postRequest } from '../../../redux/api'
 import { createTransaction } from '../../../redux/actions/transactionForm'
 import './Home.css'
@@ -18,13 +18,10 @@ const Home = (getText, getAmount) => {
     e.preventDefault()
     dispatch(createTransaction(text, amount))
   }
-  const handleTextChange = event => {
-    setText(event.target.value)
-  }
 
-  // const handleAmountChange = event => {
-  //   setAmount(event.target.value)
-  // }
+  //REDUX STATE //
+  const history = useSelector(state => state.history)
+
   // const newTransaction = () => {
   //   id: Math.floor(Math.random() * 1000000000),
   //   text,
@@ -41,11 +38,11 @@ const Home = (getText, getAmount) => {
         <div className='income-expense-div'>
           <div className='income-div'>
             <p className='income-text'>INCOME</p>
-            <p className='income-amount'>+1090$</p>
+            <p className='income-amount'>{amount}</p>
           </div>
           <div className='expense-div'>
             <p className='expense-text'>EXPENSE</p>
-            <p className='expense-amount'>-340$</p>
+            <p className='expense-amount'>{amount}</p>
           </div>
         </div>
       </div>
@@ -53,10 +50,12 @@ const Home = (getText, getAmount) => {
       {/* -------- History -------- */}
       <div className='history-div'>
         <h2 className='text-history'>History</h2>
-        <p className='fist-history-div'>
-          {text}
-          {amount}
-        </p>
+        {history.map((transaction, index) => (
+          <p className='fist-history-div' key={index}>
+            {transaction.text}
+            {transaction.amount}
+          </p>
+        ))}
       </div>
       {/* -------- Add new Transaction -------- */}
       <div className='div-add-new-transaction'>
@@ -65,8 +64,8 @@ const Home = (getText, getAmount) => {
           <p className='p-add-new-transaction'>What was your transaction?</p>
           <input
             type='text'
-            className='text'
-            onChange={event => handleTextChange(event)}
+            className='input-text textInput'
+            onChange={event => setText(event.target.value)}
             value={text}
           ></input>
           <p className='amount-add-new-transaction'>Type of the amount</p>
@@ -83,8 +82,10 @@ const Home = (getText, getAmount) => {
             <p className='switch-text'>Expense</p>
             <input
               type='text'
-              className='input-amount-switch'
+              className='input-amount textInput'
+              required
               onChange={event => setAmount(event.target.value)}
+              value={amount}
             />
           </div>
           <br />

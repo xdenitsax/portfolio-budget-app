@@ -2,24 +2,15 @@
   text-align: center;
   margin-top: 50px;
 }
-.text-expense-first-name,
-.text-expense-last-name,
-.email-expense-username,
-.text-expense-username,
-.password-expense-username,
-.confirm-password-expense-username {
+
+.reusableInput {
   color: #f3f9ea;
   font-family: 'Raleway', sans-serif;
   font-size: 18px;
   margin-top: 0;
   margin-bottom: 0;
 }
-.input-first-name,
-.input-last-name,
-.input-expense-email,
-.input-expense-username,
-.input-expense-password,
-.input-confirm-password-expense-username {
+.input {
   background-color: #f3f9ea23;
   width: 250px;
   height: 40px;
