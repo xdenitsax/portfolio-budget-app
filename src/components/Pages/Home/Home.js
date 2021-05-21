@@ -1,31 +1,42 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 // import { postRequest } from '../../../redux/api'
 import { createTransaction } from '../../../redux/actions/transactionForm'
 import './Home.css'
 
-const Home = (getText, getAmount) => {
-  // const text = useSelector(state => state.transactionForm.description)
-  // const amount = useSelector(state => state.transactionForm.amount)
-
+const Home = () => {
   const dispatch = useDispatch()
-
   const [text, setText] = useState('')
   const [amount, setAmount] = useState('')
+  const [positive, setPositive] = useState(0)
+  const [negative, setNegative] = useState(0)
+  const [balance, setBalance] = useState(0)
   const [isExpense, setIsExpense] = useState(true)
 
   const handleSubmit = e => {
     e.preventDefault()
-    dispatch(createTransaction(text, amount))
+    dispatch(createTransaction(text, amount, isExpense))
   }
 
   //REDUX STATE //
   const history = useSelector(state => state.history)
+  console.log('History', history)
 
+  useEffect(() => {
+    history.forEach(transaction => {
+      if (!isExpense) {
+        setPositive(positive + transaction.amount)
+        setBalance(balance + transaction.amount)
+        console.log('BALANCE in useEffect', balance)
+      } else if (isExpense) {
+        setNegative(negative + transaction.amount)
+        setBalance(balance + transaction.amount)
+      }
+    })
+  }, [history])
+  console.log('BALANCE in HOME', balance)
   // const newTransaction = () => {
-  //   id: Math.floor(Math.random() * 1000000000),
-  //   text,
-  //   amount: +amount
+  //   transaction.id = setId(Math.floor(Math.random() * 1000000000))
   // }
 
   return (
@@ -33,16 +44,16 @@ const Home = (getText, getAmount) => {
       {/* -------- Total Balance -------- */}
       <div className='div-balance'>
         <h2 className='div-text'>YOUR BALANCE</h2>
-        <p className='balance-amount-money'>10423$</p>
+        <p className='balance-amount-money'>{balance}</p>
         {/*  --------  Income -------- */}
         <div className='income-expense-div'>
           <div className='income-div'>
             <p className='income-text'>INCOME</p>
-            <p className='income-amount'>{amount}</p>
+            <p className='income-amount'>{positive}</p>
           </div>
           <div className='expense-div'>
             <p className='expense-text'>EXPENSE</p>
-            <p className='expense-amount'>{amount}</p>
+            <p className='expense-amount'>{negative}</p>
           </div>
         </div>
       </div>
@@ -52,8 +63,7 @@ const Home = (getText, getAmount) => {
         <h2 className='text-history'>History</h2>
         {history.map((transaction, index) => (
           <p className='fist-history-div' key={index}>
-            {transaction.text}
-            {transaction.amount}
+            {transaction.text} {transaction.amount}
           </p>
         ))}
       </div>
