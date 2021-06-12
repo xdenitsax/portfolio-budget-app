@@ -22,6 +22,14 @@ const LandingPage = () => {
               className='button-register-page'
             ></input>
           </Link>
+          <br />
+          <Link to='./add-transaction'>
+            <input
+              type='button'
+              value='GUEST ACCOUNT!'
+              className='button-guest-account'
+            ></input>
+          </Link>
         </form>
       </div>
     </>

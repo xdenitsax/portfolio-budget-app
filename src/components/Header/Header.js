@@ -5,7 +5,7 @@ const Header = () => {
     <div className='header-div'>
       {' '}
       <br />
-      <h3 className='header-div-text'>Expense Tracker</h3> <br />
+      <h3 className='header-div-text'>Expense Tracker</h3>
     </div>
   )
 }

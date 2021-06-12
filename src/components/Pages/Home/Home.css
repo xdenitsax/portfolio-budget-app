@@ -24,7 +24,8 @@
   margin-right: 70px;
   border-radius: 1rem;
   perspective: 300px;
-  box-shadow: 10px 22px 45px rgba(0, 0, 0, 0.3);
+  border: 1px solid #94ae3f;
+  background-color: #24375410;
 }
 /* backdrop-filter: blur(1px);
   -webkit-backdrop-filter: blur(10px);
@@ -51,7 +52,7 @@
 
 .div-text {
   text-align: center;
-  color: #f3f9ea76;
+  color: #243754;
   font-family: 'Karla', sans-serif;
   font-size: 25px;
   margin-bottom: 4px;
@@ -60,7 +61,7 @@
 
 .balance-amount-money {
   text-align: center;
-  color: white;
+  color: #1f1d08;
   font-family: 'Karla', sans-serif;
   font-size: 30px;
   margin-top: 10px;
@@ -79,7 +80,7 @@
 }
 
 .income-text {
-  color: #f3f9ea76;
+  color: #243754;
   font-family: 'Karla', sans-serif;
   font-size: 22px;
   margin-left: 20px;
@@ -89,13 +90,13 @@
 .income-amount {
   text-align: center;
   margin-top: 10px;
-  color: rgba(61, 255, 22, 0.769);
+  color: rgb(37, 176, 9);
   font-family: 'Karla', sans-serif;
   font-size: 22px;
 }
 
 .expense-text {
-  color: #f3f9ea76;
+  color: #243754;
   font-family: 'Karla', sans-serif;
   font-size: 22px;
   margin-left: 20px;
@@ -105,7 +106,7 @@
 .expense-amount {
   text-align: center;
   margin-top: 10px;
-  color: rgba(218, 0, 0, 0.838);
+  color: rgba(184, 4, 4, 0.94);
   font-family: 'Karla', sans-serif;
   font-size: 22px;
 }
@@ -115,6 +116,7 @@
 /*     ---------------------------------------------------------------      */
 
 .div-add-new-transaction {
+  background-color: #24375410;
   order: 1;
   border-radius: 1rem;
   margin: 60px 0px 0 10px;
@@ -124,7 +126,7 @@
   padding-bottom: 30px;
   transform-style: preserve-3d;
   perspective: 300px;
-  box-shadow: 15px 22px 45px rgba(0, 0, 0, 0.3);
+  box-shadow: 10px 20px 35px rgba(0, 0, 0, 0.185);
   /* backdrop-filter: blur(1px);
   -webkit-backdrop-filter: blur(10px);
   transform: perspective(400px) rotateY(1deg) scale(0.8) rotateX(1deg);
@@ -147,13 +149,13 @@
 
 .text-add-new-transaction {
   text-align: center;
-  color: #f3f9ea76;
+  color: #243754;
   font-family: 'Karla', sans-serif;
   font-size: 23px;
 }
 .p-add-new-transaction {
   text-align: center;
-  color: #f3f9ea76;
+  color: #243754;
   font-family: 'Raleway', sans-serif;
   font-size: 18px;
   margin-top: 30px;
@@ -161,7 +163,7 @@
 }
 .amount-add-new-transaction {
   text-align: center;
-  color: #f3f9ea76;
+  color: #243754;
   font-family: 'Raleway', sans-serif;
   font-size: 17px;
   margin-top: 20px;
@@ -173,11 +175,11 @@
   width: 200px;
   font-family: 'Raleway', sans-serif;
   font-size: 19px;
-  color: #ebf5da;
+  color: #243754;
   height: 30px;
   border-style: hidden;
   border-radius: 6px;
-  background-color: #ebf5da1e;
+  background-color: #2437542f;
   text-align: center;
 }
 
@@ -185,7 +187,7 @@
   width: 60%;
   height: 30px;
   border-style: none;
-  background-color: #f3f9ea;
+  background-color: #243754;
 }
 
 /* --------- Button add-transaction --------- */
@@ -195,10 +197,10 @@
   margin-left: 65px;
   width: 120px;
   height: 30px;
-  background-color: #ebf5da1d;
+  background-color: #2437542f;
   border-style: hidden;
   border-radius: 10px;
-  color: #f3f9ea76;
+  color: #243754;
   font-family: 'Raleway', sans-serif;
   font-size: 14px;
   font-weight: bolder;
@@ -283,7 +285,7 @@ input:checked + .slider:before {
   text-align: left;
   margin-left: 10px;
   margin-right: 10px;
-  color: #f3f9ea76;
+  color: #243754;
   font-family: 'Raleway', sans-serif;
   font-size: 15px;
 }
@@ -292,6 +294,8 @@ input:checked + .slider:before {
   margin-top: 10px;
   margin-left: 0;
   margin-right: 10px;
+  background-color: #2437542f;
+  box-shadow: 10px 16px 45px #2437542f;
 }
 
 /*     ---------------------------------------------------------------      */
@@ -307,7 +311,7 @@ input:checked + .slider:before {
 
 .text-history {
   text-align: center;
-  color: #ebf5da;
+  color: #243754;
   font-family: 'Raleway', sans-serif;
   font-size: 30px;
   margin-bottom: 15px;
@@ -318,14 +322,17 @@ input:checked + .slider:before {
 .fist-history-div {
   align-items: center;
   text-align: center;
-  background-color: #ebf5da1e;
+  background-color: #2437542f;
+  margin-bottom: 7px;
   width: 400px;
-  height: 40px;
+  height: 50px;
   border: hidden 1px;
   border-radius: 9px;
-  color: #ebf5da;
-  font-family: 'Monserrat', sans-serif;
+  color: #243754;
+  font-family: 'Raleway', sans-serif;
   font-size: 25px;
   font-weight: 100;
-  padding-top: 5px;
+  padding-top: 10px;
+  background-color: #24375410;
+  box-shadow: 10px 3px 10px rgba(0, 0, 0, 0.075);
 }

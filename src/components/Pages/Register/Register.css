@@ -4,14 +4,13 @@
 }
 
 .reusableInput {
-  color: #f3f9ea;
+  color: #243754;
   font-family: 'Raleway', sans-serif;
   font-size: 18px;
-  margin-top: 0;
-  margin-bottom: 0;
 }
 .input {
-  background-color: #f3f9ea23;
+  box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.082);
+  background-color: #2437542f;
   width: 250px;
   height: 40px;
   border-style: hidden;
@@ -21,19 +20,22 @@
   margin-top: 10px;
   margin-bottom: 20px;
 }
-
+.input:focus {
+  border: 1px solid #1013214b;
+  padding: 15px;
+}
 .button-register {
   border-radius: 1rem;
-  color: #ebf5da;
+  color: #1f1d08;
   perspective: 300px;
-  box-shadow: 15px 22px 45px rgba(0, 0, 0, 0.3);
+  box-shadow: 15px 22px 45px rgba(0, 0, 0, 0.055);
   width: 150px;
   height: 45px;
-  background-color: #9ac53db8;
+  background-color: #94ae3f;
   border-style: hidden;
   border-radius: 5px;
   font-family: 'Raleway', sans-serif;
-  font-size: 15px;
+  font-size: 19px;
   margin-top: 10px;
   margin-bottom: 20px;
 }

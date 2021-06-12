@@ -44,16 +44,16 @@ const Home = () => {
       {/* -------- Total Balance -------- */}
       <div className='div-balance'>
         <h2 className='div-text'>YOUR BALANCE</h2>
-        <p className='balance-amount-money'>{balance}</p>
+        <p className='balance-amount-money'>{balance} $</p>
         {/*  --------  Income -------- */}
         <div className='income-expense-div'>
           <div className='income-div'>
             <p className='income-text'>INCOME</p>
-            <p className='income-amount'>{positive}</p>
+            <p className='income-amount'>{positive} $</p>
           </div>
           <div className='expense-div'>
             <p className='expense-text'>EXPENSE</p>
-            <p className='expense-amount'>{negative}</p>
+            <p className='expense-amount'>{negative} $</p>
           </div>
         </div>
       </div>
@@ -62,9 +62,11 @@ const Home = () => {
       <div className='history-div'>
         <h2 className='text-history'>History</h2>
         {history.map((transaction, index) => (
-          <p className='fist-history-div' key={index}>
-            {transaction.text} {transaction.amount}
-          </p>
+          <div>
+            <p className='fist-history-div' key={index}>
+              {transaction.text} {transaction.amount}
+            </p>{' '}
+          </div>
         ))}
       </div>
       {/* -------- Add new Transaction -------- */}

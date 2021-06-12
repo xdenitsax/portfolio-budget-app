@@ -10,9 +10,9 @@ import './App.css'
 const App = () => {
   return (
     <div className='app-div'>
+      <Header />
       <BrowserRouter>
         <div>
-          <Header />
           <Route path='/' exact component={LandingPage} />
           <Route path='/signin' component={LoginPage} />
           <Route path='/register' component={Register} />
