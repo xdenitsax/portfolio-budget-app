@@ -1,7 +1,4 @@
-import {
-  HANDLE_CHANGE_DESCRIPTION,
-  CREATE_TRANSACTION_FAILURE,
-} from '../actionTypes'
+import { HANDLE_CHANGE_DESCRIPTION, CREATE_TRANSACTION_ERROR } from '../actionTypes'
 
 const initialState = {
   description: '',
@@ -10,7 +7,7 @@ const initialState = {
 
 const transactionFormReducer = (state = initialState, action) => {
   switch (action.type) {
-    case CREATE_TRANSACTION_FAILURE:
+    case CREATE_TRANSACTION_ERROR:
       return state
     case HANDLE_CHANGE_DESCRIPTION:
       return { ...state, description: action.payload.value }

@@ -1,12 +1,8 @@
-import {
-  addTransaction,
-  createTransactionFailure,
-} from '../actions/transactionForm'
-
-import { alertActions } from '../actions/transactionForm'
+import { addTransaction, createTransactionError } from '../actions/transactionForm'
+import { registerUserSuccess, registerUserError } from '../actions/user'
 
 export const postRequest = (text, amount) => {
-  return async dispatch => {
+  return async (dispatch) => {
     const requestPostOptions = {
       method: 'POST',
       headers: {
@@ -16,10 +12,7 @@ export const postRequest = (text, amount) => {
       body: JSON.stringify({ title: text, amount }),
     }
     try {
-      const response = await fetch(
-        'http://localhost:5000/create',
-        requestPostOptions
-      )
+      const response = await fetch('http://localhost:5000/create', requestPostOptions)
       const parsedJSON = await response.json()
       const { title: description, amount, _id: id, date } = parsedJSON
       // If response status is 200 dispatch an AddTransaction action.
@@ -34,36 +27,33 @@ export const postRequest = (text, amount) => {
         )
       }
       // Else dispatch an error action.
-      return dispatch(alertActions.error()())
+      return dispatch(createTransactionError())
       // If there is no response from the server (network error, promise doesn't resolve) catch the error.
     } catch (error) {
       console.log(error)
-      return dispatch(alertActions.error())
+      return dispatch(createTransactionError())
     }
   }
 }
 
 export const postUserRequest = (firstName, lastName, username, password) => {
-  return async dispatch => {
+  return async (dispatch) => {
     const requestPostOptions = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
       },
-      body: JSON.stringify({ user: firstName, lastName, username, password }),
+      body: JSON.stringify({ firstName, lastName, username, password }),
     }
     try {
-      const response = await fetch(
-        'http://localhost:5000/users/register',
-        requestPostOptions
-      )
+      const response = await fetch('http://localhost:5000/users/register', requestPostOptions)
       const parsedJSON = await response.json()
-      const { user: firstName, lastName, username, password } = parsedJSON
+      const { firstName, lastName, username, password } = parsedJSON
       // If response status is 200 dispatch an AddUser action.
       if (response.status === 200) {
         return dispatch(
-          alertActions.success({
+          registerUserSuccess({
             firstName,
             lastName,
             username,
@@ -72,11 +62,11 @@ export const postUserRequest = (firstName, lastName, username, password) => {
         )
       }
       // Else dispatch an error action.
-      return dispatch(alertActions.error())
+      return dispatch(registerUserError())
       // If there is no response from the server (network error, promise doesn't resolve) catch the error.
     } catch (error) {
       console.log(error)
-      return dispatch(alertActions.error())
+      return dispatch(registerUserError())
     }
   }
 }
