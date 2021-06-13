@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 import './Register.css'
 import ReusableInput from './ReusableInput'
 import { useDispatch, useSelector } from 'react-redux'
-import { createUser } from '../../../redux/actions/usersHandle'
+import { createUser } from '../../../redux/actions/user'
+import { postUserRequest } from '../../../redux/api'
 
 const Register = () => {
   const dispatch = useDispatch()
@@ -25,35 +26,36 @@ const Register = () => {
   //   errorConfirmPassword: 'Ooops... password don`t match!',
   // })
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     // setErrors([...errors], errors.next())
     setShowMessage(false)
-    dispatch(createUser(firstName, lastName, username, password))
+    // dispatch(createUser(firstName, lastName, username, password))
+    dispatch(postUserRequest(firstName, lastName, username, password))
   }
   // console.log(errors)
   //REDUX STATE //
-  const user = useSelector(state => state.createUser)
-  console.log(user)
+  // const user = useSelector((state) => state.createUser)
+  // console.log(user)
   return (
     <>
-      <form className='form-expense-div'>
+      <form className="form-expense-div">
         <ReusableInput
-          title='First Name'
-          id='firstname'
-          type='text'
+          title="First Name"
+          id="firstname"
+          type="text"
           value={firstName}
-          onChange={e => setFirstName(e.target.value)}
+          onChange={(e) => setFirstName(e.target.value)}
         />
         {/* <div>
           {firstName.length <= 3 ? <p>{errors.errorFirstName}</p> : showMessage}
         </div> */}
         <ReusableInput
-          title='Last Name'
-          id='lastname'
-          type='text'
+          title="Last Name"
+          id="lastname"
+          type="text"
           value={lastName}
-          onChange={e => setLastName(e.target.value)}
+          onChange={(e) => setLastName(e.target.value)}
         />
         {/* <div>
           {lastName.length <= 3 ? <p>{errors.errorLastName}</p> : showMessage}
@@ -69,31 +71,31 @@ const Register = () => {
           {email.length <= 3 ? <p>{errors.errorEmail}</p> : showMessage}
         </div> */}
         <ReusableInput
-          title='Username'
-          id='username'
-          type='text'
+          title="Username"
+          id="username"
+          type="text"
           value={username}
-          onChange={e => setUsername(e.target.value)}
+          onChange={(e) => setUsername(e.target.value)}
         />
         {/* <div>
           {username.length <= 6 ? <p>{errors.errorUsername}</p> : showMessage}
         </div> */}
         <ReusableInput
-          title='Password'
-          id='password'
-          type='text'
+          title="Password"
+          id="password"
+          type="text"
           value={password}
-          onChange={e => setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
         />
         {/* <div>
           {password.length <= 10 ? <p>{errors.errorPassword}</p> : showMessage}
         </div> */}
         <ReusableInput
-          title='Confirm Password'
-          id='confirmPassword'
-          type='text'
+          title="Confirm Password"
+          id="confirmPassword"
+          type="text"
           value={confirmPassword}
-          onChange={e => setConfirmPassword(e.target.value)}
+          onChange={(e) => setConfirmPassword(e.target.value)}
         />
         {/* <div>
           {password === confirmPassword ? (
@@ -103,13 +105,8 @@ const Register = () => {
           )}
         </div> */}
         <br />
-        <Link to='./signin'>
-          <input
-            type='button'
-            value='Register!'
-            className='button-register'
-            onClick={e => handleSubmit(e)}
-          ></input>
+        <Link to="./signin">
+          <input type="button" value="Register!" className="button-register" onClick={(e) => handleSubmit(e)}></input>
         </Link>
       </form>
     </>

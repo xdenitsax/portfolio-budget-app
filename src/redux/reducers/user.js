@@ -1,4 +1,4 @@
-import { CREATE_NEW_USER, LOGIN_USER } from '../actionTypes'
+import { CREATE_USER_SUCCESS, CREATE_USER_ERROR, LOGIN_USER } from '../actionTypes'
 
 const initialState = {
   profile: {
@@ -12,7 +12,7 @@ const initialState = {
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'LOGIN_USER':
+    case LOGIN_USER:
       return {
         ...state,
         username: action.payload.username,
@@ -20,14 +20,15 @@ const userReducer = (state = initialState, action) => {
         formSubmitted: false,
       }
 
-    case 'CREATE_NEW_USER':
+    case CREATE_USER_SUCCESS:
+      console.log('action', action)
       return {
         ...state,
-        firstNanme: action.payload.firstName,
-        lastName: action.payload.lastName,
-        username: action.payload.username,
-        password: action.payload.password,
-        formSubmitted: false, // after update user formsubmition reset
+        // firstNanme: action.payload.firstName,
+        // lastName: action.payload.lastName,
+        // username: action.payload.username,
+        // password: action.payload.password,
+        // formSubmitted: false, // after update user formsubmition reset
       }
     default:
       return state
