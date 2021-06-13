@@ -1,18 +1,31 @@
 import React from 'react'
-import './Register.css'
-const ReusableInput = ({ title, id, type, className, value, onChange }) => {
+
+const ReusableInput = ({ title, name, type, value, setValue, setErrors, errors }) => {
+  const handleChange = event => {
+    setErrors(state => ({
+      ...state,
+      [name]: '',
+    }))
+    setValue(event.target.value)
+  }
+
   return (
-    <div>
-      <label className='reusableInput'>{title}</label>
-      <br />
-      <input
-        id={id}
-        type={type}
-        className='input'
-        value={value}
-        onChange={onChange}
-      />
-    </div>
+    <>
+      <div>
+        <label>{title}</label>
+        <input className={errors[name] ? 'error' : ''} id={name} type={type} value={value} onChange={handleChange} />
+      </div>
+      <div className="error-message-container">
+        {errors[name] ? (
+          <p>
+            {title}
+            {errors[name]}
+          </p>
+        ) : (
+          <p></p>
+        )}
+      </div>
+    </>
   )
 }
 

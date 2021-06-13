@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Register.css'
 import ReusableInput from './ReusableInput'
-import { useDispatch, useSelector } from 'react-redux'
-import { createUser } from '../../../redux/actions/user'
+import { useDispatch } from 'react-redux'
 import { postUserRequest } from '../../../redux/api'
 
 const Register = () => {
@@ -14,89 +13,88 @@ const Register = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
-  const [showMessage, setShowMessage] = useState(true)
-  // const [errors, setErrors] = useState({
-  //   errorFirstName: 'First name must be filed!',
-  //   errorLastName: 'Last name must be filed!',
-  //   // errorEmail: 'Email must be filed!',
-  //   errorUsername: 'Username must be filed and at least 6 symbols!',
-  //   errorPassword:
-  //     'Password must be at least 10 characters, and needs at least 3 of the following: uppercase, lowercase, numeric, or special characters.  The allowed special characters are ~ ! @ # $ % ^ * - _ = + [ { ] } / ; : , . ?  [no spaces allowed!',
-  //   errorConfirmPassword: 'Ooops... password don`t match!',
-  // })
+  const [errors, setErrors] = useState({ firstName: '', lastName: '', username: '', password: '', confirmPassword: '' })
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault()
-    // setErrors([...errors], errors.next())
-    setShowMessage(false)
-    // dispatch(createUser(firstName, lastName, username, password))
-    dispatch(postUserRequest(firstName, lastName, username, password))
+    // First validate the form, if there are no errors send a request to register the user.
+    const formFields = { firstName, lastName, username, password, confirmPassword }
+    let formHasErrors = false
+    // For loop validating over object's fields.
+    for (const value in formFields) {
+      if (!formFields[value].match(/^[A-Za-z0-9]+$/) || formFields[value].match(/\s/g)) {
+        setErrors(state => ({ ...state, [value]: ' must not have special characters or blank spaces' }))
+        formHasErrors = true
+      }
+      if (formFields[value].length < 3) {
+        setErrors(state => ({ ...state, [value]: ' must be at least 3 characters long' }))
+        formHasErrors = true
+      }
+      if (formFields[value].length > 20) {
+        setErrors(state => ({ ...state, [value]: ' must be less than 20 characters long' }))
+        formHasErrors = true
+      }
+      if (value === 'confirmPassword' && confirmPassword !== password) {
+        setErrors(state => ({ ...state, [value]: ' does not match password' }))
+        formHasErrors = true
+      }
+    }
+    // If there are no errors submit the form.
+    if (!formHasErrors) {
+      dispatch(postUserRequest(firstName, lastName, username, password))
+    }
   }
-  // console.log(errors)
-  //REDUX STATE //
-  // const user = useSelector((state) => state.createUser)
-  // console.log(user)
+
   return (
     <>
       <form className="form-expense-div">
         <ReusableInput
           title="First Name"
-          id="firstname"
+          name="firstName"
           type="text"
           value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
+          setValue={setFirstName}
+          setErrors={setErrors}
+          errors={errors}
         />
-        {/* <div>
-          {firstName.length <= 3 ? <p>{errors.errorFirstName}</p> : showMessage}
-        </div> */}
         <ReusableInput
           title="Last Name"
-          id="lastname"
+          name="lastName"
           type="text"
           value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
+          setValue={setLastName}
+          setErrors={setErrors}
+          errors={errors}
         />
-        {/* <div>
-          {lastName.length <= 3 ? <p>{errors.errorLastName}</p> : showMessage}
-        </div> */}
-
         <ReusableInput
           title="Username"
-          id="username"
+          name="username"
           type="text"
           value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          setValue={setUsername}
+          setErrors={setErrors}
+          errors={errors}
         />
-        {/* <div>
-          {username.length <= 6 ? <p>{errors.errorUsername}</p> : showMessage}
-        </div> */}
         <ReusableInput
           title="Password"
-          id="password"
-          type="text"
+          name="password"
+          type="password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          setValue={setPassword}
+          setErrors={setErrors}
+          errors={errors}
         />
-        {/* <div>
-          {password.length <= 10 ? <p>{errors.errorPassword}</p> : showMessage}
-        </div> */}
         <ReusableInput
           title="Confirm Password"
-          id="confirmPassword"
-          type="text"
+          name="confirmPassword"
+          type="password"
           value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
+          setValue={setConfirmPassword}
+          setErrors={setErrors}
+          errors={errors}
         />
-        {/* <div>
-          {password === confirmPassword ? (
-            <p>{errors.errorConfirmPassword}</p>
-          ) : (
-            showMessage
-          )}
-        </div> */}
-        <br />
         <Link to="./signin">
-          <input type="button" value="Register!" className="button-register" onClick={(e) => handleSubmit(e)}></input>
+          <button onClick={e => handleSubmit(e)}>Register</button>
         </Link>
       </form>
     </>
