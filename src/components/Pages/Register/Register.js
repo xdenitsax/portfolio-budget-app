@@ -11,7 +11,6 @@ const Register = () => {
 
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
-  // const [email, setEmail] = useState('')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
@@ -60,16 +59,7 @@ const Register = () => {
         {/* <div>
           {lastName.length <= 3 ? <p>{errors.errorLastName}</p> : showMessage}
         </div> */}
-        {/* <ReusableInput
-          title='Email address'
-          id='email'
-          type='text'
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-        />
-        <div>
-          {email.length <= 3 ? <p>{errors.errorEmail}</p> : showMessage}
-        </div> */}
+
         <ReusableInput
           title="Username"
           id="username"

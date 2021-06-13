@@ -1,7 +1,0 @@
-Add new transaction: 
-1. To connect switch button INCOME/EXPENSE with the input.
-
-2. If it is expense on the div down to be writen -, else to 
-be writen +, to make logic between map/switch button/input.
-
-3.To write functin wich based on the history 
