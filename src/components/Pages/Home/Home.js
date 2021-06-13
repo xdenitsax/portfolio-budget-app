@@ -34,10 +34,6 @@ const Home = () => {
       }
     })
   }, [history])
-  console.log('BALANCE in HOME', balance)
-  // const newTransaction = () => {
-  //   transaction.id = setId(Math.floor(Math.random() * 1000000000))
-  // }
 
   return (
     <div className="home-div">
@@ -45,6 +41,7 @@ const Home = () => {
       <div className="div-balance">
         <h2 className="div-text">YOUR BALANCE</h2>
         <p className="balance-amount-money">{balance} $</p>
+
         {/*  --------  Income -------- */}
         <div className="income-expense-div">
           <div className="income-div">
@@ -70,6 +67,7 @@ const Home = () => {
           </div>
         ))}
       </div>
+
       {/* -------- Add new Transaction -------- */}
       <div className="div-add-new-transaction">
         <form>

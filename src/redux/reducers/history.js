@@ -1,8 +1,8 @@
-import { CREATE_TRANSACTION_SUCCESS } from '../actionTypes'
+import { CREATE_TRANSACTION_SUCCESS, GET_HISTORY_SUCCESS } from '../actionTypes'
 
 const historyReducer = (state = [], action) => {
   switch (action.type) {
-    case 'GET_HISTORY_SUCCESS':
+    case GET_HISTORY_SUCCESS:
       return state
     case CREATE_TRANSACTION_SUCCESS: {
       // Converting amount type string to be a number.
@@ -17,12 +17,6 @@ const historyReducer = (state = [], action) => {
 
       return [...state, transaction]
     }
-    // case CREATE_TRANSACTION_SUCCESS: {
-    //   const { description, amount, id, date } = action
-    //   const newTransaction = { description, amount, id, date }
-    //   return [...state, newTransaction]
-    // }
-
     default:
       return state
   }
