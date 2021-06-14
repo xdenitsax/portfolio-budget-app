@@ -1,0 +1,36 @@
+/* .navBar {
+  background: #94ae3f;
+  height: 80px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+} */
+
+.icon {
+  margin-left: 2rem;
+  font-size: 2rem;
+  height: 80px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.slider-nav-bar {
+  background: #94ae3f;
+  width: 250px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  transition: 350ms;
+  z-index: 10;
+}
+
+.slider-wrap {
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+}
