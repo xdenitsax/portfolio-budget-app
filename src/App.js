@@ -4,22 +4,22 @@ import Register from './components/Pages/Register/Register'
 import LandingPage from './components/Pages/LandingPage/LandingPage'
 import Header from './components/Header/Header'
 import Home from './components/Pages/Home/Home'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import './App.css'
 
 const App = () => {
   return (
     <div className="app-div">
-      <Header />
-      <BrowserRouter>
-        <div>
+      {/* <Header /> */}
+      <Router>
+        <Switch>
           <Route path="/" exact component={LandingPage} />
           <Route path="/login" component={LoginPage} />
           <Route path="/register" component={Register} />
           <Route path="/home" component={Home} />
-        </div>
-      </BrowserRouter>
+        </Switch>
+      </Router>
     </div>
   )
 }
