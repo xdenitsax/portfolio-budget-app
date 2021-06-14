@@ -1,13 +1,17 @@
-import { CREATE_USER_SUCCESS, CREATE_USER_ERROR, LOGIN_USER } from '../actionTypes'
+import {
+  CREATE_USER_SUCCESS,
+  CREATE_USER_ERROR,
+  LOGIN_USER,
+  LOGIN_USER_SUCCESS,
+  GET_USER_DATA_SUCCESS,
+} from '../actionTypes'
 
 const initialState = {
-  profile: {
-    firstName: '',
-    lastName: '',
-    username: '',
-    password: '',
-  },
-  formSubmitted: false,
+  firstName: '',
+  lastName: '',
+  token: '',
+  userId: '',
+  isLoading: false,
 }
 
 const userReducer = (state = initialState, action) => {
@@ -15,20 +19,27 @@ const userReducer = (state = initialState, action) => {
     case LOGIN_USER:
       return {
         ...state,
-        username: action.payload.username,
-        password: action.payload.password,
-        formSubmitted: false,
+        isLoading: true,
       }
-
-    case CREATE_USER_SUCCESS:
-      console.log('action', action)
+    case LOGIN_USER_SUCCESS:
       return {
         ...state,
-        // firstNanme: action.payload.firstName,
-        // lastName: action.payload.lastName,
-        // username: action.payload.username,
-        // password: action.payload.password,
-        // formSubmitted: false, // after update user formsubmition reset
+        token: action.payload.token,
+        userId: action.payload.userId,
+        isLoading: false,
+      }
+    case CREATE_USER_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+      }
+    case GET_USER_DATA_SUCCESS:
+      const { firstName, lastName } = action.payload
+      return {
+        ...state,
+        firstName,
+        lastName,
+        isLoading: false,
       }
     default:
       return state

@@ -3,11 +3,10 @@ import { Link } from 'react-router-dom'
 import './Register.css'
 import ReusableInput from './ReusableInput'
 import { useDispatch } from 'react-redux'
-import { postUserRequest } from '../../../redux/api'
+import { registerUser } from '../../../redux/api'
 
-const Register = () => {
-  const dispatch = useDispatch()
-
+const Register = ({ history }) => {
+  // Local state.
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [username, setUsername] = useState('')
@@ -15,6 +14,10 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState('')
   const [errors, setErrors] = useState({ firstName: '', lastName: '', username: '', password: '', confirmPassword: '' })
 
+  // Initialize dispatch.
+  const dispatch = useDispatch()
+
+  // Form submission and validation.
   const handleSubmit = e => {
     e.preventDefault()
     // First validate the form, if there are no errors send a request to register the user.
@@ -41,7 +44,7 @@ const Register = () => {
     }
     // If there are no errors submit the form.
     if (!formHasErrors) {
-      dispatch(postUserRequest(firstName, lastName, username, password))
+      dispatch(registerUser({ userInfo: formFields, history }))
     }
   }
 
@@ -93,9 +96,7 @@ const Register = () => {
           setErrors={setErrors}
           errors={errors}
         />
-        <Link to="./signin">
-          <button onClick={e => handleSubmit(e)}>Register</button>
-        </Link>
+        <button onClick={handleSubmit}>Register</button>
       </form>
     </>
   )
