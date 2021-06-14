@@ -1,45 +1,58 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import './LoginPage.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { loginUser } from '../../../redux/actions/user'
+import { loginUser } from '../../../redux/api'
+import ReusableInput from '../Register/ReusableInput'
 
-const LoginPage = () => {
+const LoginPage = ({ history }) => {
   const dispatch = useDispatch()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [errors, setErrors] = useState({ username: '', password: '' })
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    dispatch(loginUser(username, password))
+  const handleSubmit = e => {
+    e.preventDefault()
+    // First validate the form, if there are no errors send a request to register the user.
+    const formFields = { username, password }
+    let formHasErrors = false
+    // For loop validating over object's fields.
+    for (const value in formFields) {
+      if (!formFields[value].length) {
+        setErrors(state => ({ ...state, [value]: ' is required' }))
+        formHasErrors = true
+      }
+    }
+    // If there are no errors submit the form.
+    if (!formHasErrors) {
+      dispatch(loginUser({ userInfo: formFields, history }))
+    }
   }
 
-  const userLogin = useSelector((state) => state.loginUser)
-  console.log(userLogin)
   return (
     <>
       <form className="form-div">
-        <p className="text-username" value={username} onChange={(event) => setUsername(event.target.value)}>
-          Username:
-        </p>
-        <input type="text" className="input-username"></input>
-        <br />
-        <p className="text-password">Password:</p>
-        <input
+        <ReusableInput
+          title="Username"
+          name="username"
+          type="text"
+          value={username}
+          setValue={setUsername}
+          setErrors={setErrors}
+          errors={errors}
+        />
+        <ReusableInput
+          title="Password"
+          name="password"
           type="password"
-          className="input-password"
           value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        ></input>
-        <br />
-        <Link to="/add-transaction">
-          <input
-            type="button"
-            value="Sumbit"
-            className="input-button"
-            onChange={(event) => handleSubmit(event)}
-          ></input>
-        </Link>
+          setValue={setPassword}
+          setErrors={setErrors}
+          errors={errors}
+        />
+
+        <button type="submit" onClick={handleSubmit}>
+          Submit
+        </button>
       </form>
     </>
   )
