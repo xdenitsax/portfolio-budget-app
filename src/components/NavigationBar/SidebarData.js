@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 export const SidebarData = [
   {
     title: 'Home',
-    path: '/',
+    path: '/home',
     icon: <reactIconsAi.AiFillHome />,
     iconClosed: <reactIconsRi.RiArrowDownSFill />,
     iconOpened: <reactIconsRi.RiArrowUpSFill />,
