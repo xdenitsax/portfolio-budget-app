@@ -48,7 +48,7 @@ body {
   margin-top: 30px;
 }
 
-label,
+.label-reusable-input,
 input,
 button {
   display: block;
@@ -59,15 +59,15 @@ button {
   box-sizing: border-box;
 }
 
-label {
+.label-reusable-input {
   margin-bottom: 4px;
 }
 
-label:nth-of-type(2) {
+.label-reusable-input:nth-of-type(2) {
   margin-top: 12px;
 }
 
-input::placeholder {
+.label-reusable-input::placeholder {
   color: gray;
 }
 
