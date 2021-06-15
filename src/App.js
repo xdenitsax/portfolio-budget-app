@@ -2,12 +2,12 @@ import React from 'react'
 import LoginPage from './components/Pages/LoginPage/LoginPage'
 import Register from './components/Pages/Register/Register'
 import LandingPage from './components/Pages/LandingPage/LandingPage'
-import Header from './components/Header/Header'
 import Home from './components/Pages/Home/Home'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-
 import './App.css'
 import NavigationBar from './components/NavigationBar/NavigationBar'
+import About from './components/Pages/About/About'
+import Support from './components/Pages/Support/Support'
 
 const App = () => {
   return (
@@ -20,6 +20,8 @@ const App = () => {
           <Route path="/login" component={LoginPage} />
           <Route path="/register" component={Register} />
           <Route path="/home" component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/support" component={Support} />
         </Switch>
       </Router>
     </div>

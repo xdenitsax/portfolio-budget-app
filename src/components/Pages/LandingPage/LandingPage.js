@@ -5,30 +5,18 @@ import './LandingPage.css'
 const LandingPage = () => {
   return (
     <>
-      <div className='form-firstPage'>
+      <div className="form-firstPage">
         <form>
-          <Link to='./signin'>
-            <input
-              type='button'
-              value='SIGN IN!'
-              className='button-signin-page'
-            ></input>
+          <Link to="./login">
+            <input type="button" value="SIGN IN!" className="button-signin-page"></input>
           </Link>
-          <p className='or-firstPage'>OR</p>
-          <Link to='./register'>
-            <input
-              type='button'
-              value='REGISTER AN ACOUNT!'
-              className='button-register-page'
-            ></input>
+          <p className="or-firstPage">OR</p>
+          <Link to="./register">
+            <input type="button" value="REGISTER AN ACOUNT!" className="button-register-page"></input>
           </Link>
           <br />
-          <Link to='./add-transaction'>
-            <input
-              type='button'
-              value='GUEST ACCOUNT!'
-              className='button-guest-account'
-            ></input>
+          <Link to="./home">
+            <input type="button" value="GUEST ACCOUNT!" className="button-guest-account"></input>
           </Link>
         </form>
       </div>

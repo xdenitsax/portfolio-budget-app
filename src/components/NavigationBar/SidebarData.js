@@ -13,21 +13,17 @@ export const SidebarData = [
     iconClosed: <reactIconsRi.RiArrowDownSFill />,
     iconOpened: <reactIconsRi.RiArrowUpSFill />,
   },
+  // {
+  //   title: 'Profile',
+  //   path: '/profile',
+  //   icon: <reactIconsIo.IoMdPerson />,
+  //   iconClosed: <reactIconsRi.RiArrowDownSFill />,
+  //   iconOpened: <reactIconsRi.RiArrowUpSFill />,
+  // },
+
   {
-    title: 'Register',
-    path: '/register',
-    icon: <reactIconsIo.IoMdPerson />,
-    iconClosed: <reactIconsRi.RiArrowDownSFill />,
-    iconOpened: <reactIconsRi.RiArrowUpSFill />,
-  },
-  {
-    title: 'Log In',
-    path: '/login',
-    icon: <reactIconsAi.AiOutlineProfile />,
-  },
-  {
-    title: 'About Us',
-    path: '/aboutus',
+    title: 'About',
+    path: '/about',
     icon: <reactIconsIo.IoMdPeople />,
   },
   {

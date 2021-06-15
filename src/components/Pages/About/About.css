@@ -1,0 +1,81 @@
+.background-about {
+  background-color: #94ae3f38;
+  height: 600px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+@media screen and (min-width: 1025px) {
+  .background-about {
+    flex-direction: row;
+  }
+}
+/* TEXT */
+.text-div {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  width: 450px;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1025px) {
+  .text-div {
+    width: 80%;
+  }
+}
+.text {
+  text-align: justify;
+}
+
+/* IMAGE */
+.image {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.image-girl {
+  height: 400px;
+  border-radius: 10px;
+}
+@media screen and (max-width: 1025px) {
+  .image-girl {
+    height: 350px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .image-girl {
+    height: 300px;
+  }
+}
+@media screen and (max-width: 545px) {
+  .image-girl {
+    height: 200px;
+  }
+}
+@media screen and (max-width: 370px) {
+  .image-girl {
+    height: 150px;
+  }
+}
+/* BUTTON */
+.div-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 100px;
+}
+.button {
+  background-color: #94ae3f;
+  font-size: 13px;
+  height: 40px;
+  width: 120px;
+  white-space: nowrap;
+  outline: none;
+  border: none;
+}

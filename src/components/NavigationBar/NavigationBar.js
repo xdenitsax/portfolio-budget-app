@@ -4,7 +4,6 @@ import * as reactIconsFa from 'react-icons/fa'
 import * as reactIconsAi from 'react-icons/ai'
 import './NavigationBar.css'
 import { SidebarData } from './SidebarData'
-import NavItem from './NavItem'
 
 const NavigationBar = () => {
   const [navigationBar, setNavigationBar] = useState(false)
@@ -19,7 +18,10 @@ const NavigationBar = () => {
             {SidebarData.map((item, index) => {
               return (
                 <Link to={item.path} key={item.path}>
-                  <NavItem className="sub-menu" item={item} key={index} />
+                  <div className="sideBar-link">
+                    {item.icon}
+                    <div className="item-title"> {item.title}</div>
+                  </div>
                 </Link>
               )
               return <p key={index}>abc</p>

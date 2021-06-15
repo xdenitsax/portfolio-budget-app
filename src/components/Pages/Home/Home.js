@@ -3,7 +3,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { createTransaction } from '../../../redux/actions/transactionForm'
 import { getUserData } from '../../../redux/api'
 import './Home.css'
-
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import NavigationBar from '../../NavigationBar/NavigationBar'
+import LoginPage from '../LoginPage/LoginPage'
+import Register from '../Register/Register'
+import LandingPage from '../LandingPage/LandingPage'
 const Home = ({ history }) => {
   // Local state.
   const [text, setText] = useState('')
@@ -52,6 +56,7 @@ const Home = ({ history }) => {
 
   return (
     <>
+      <div></div>
       <div>{isLoading ? <h1>Loading...</h1> : <h1>Hi, {firstName}!</h1>}</div>
       <div className="home-div">
         {/* -------- Total Balance -------- */}
