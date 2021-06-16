@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import * as reactIconsFa from 'react-icons/fa'
-import * as reactIconsAi from 'react-icons/ai'
 import './NavigationBar.css'
 import { SidebarData } from './SidebarData'
 
