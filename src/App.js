@@ -10,6 +10,7 @@ import About from './components/Pages/About/About'
 import Support from './components/Pages/Support/Support'
 import BrandAndLogo from './components/BrandAndLogo/BrandAndLogo'
 import Footer from './components/Footer/Footer'
+import * as reactIconsFa from 'react-icons/fa'
 
 const App = () => {
   return (
@@ -25,6 +26,9 @@ const App = () => {
           <Route path="/support" component={Support} />
         </Switch>
       </Router>
+      <footer>
+        <p className="footer-paragraph">®Expense Tracker MMXX</p>
+      </footer>
     </div>
   )
 }
