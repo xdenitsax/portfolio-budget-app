@@ -8,13 +8,14 @@ import './App.css'
 import NavigationBar from './components/NavigationBar/NavigationBar'
 import About from './components/Pages/About/About'
 import Support from './components/Pages/Support/Support'
+import BrandAndLogo from './components/BrandAndLogo/BrandAndLogo'
+import Footer from './components/Footer/Footer'
 
 const App = () => {
   return (
     <div className="app-div">
-      {/* <Header /> */}
+      <BrandAndLogo />
       <Router>
-        <NavigationBar />
         <Switch>
           <Route path="/" exact component={LandingPage} />
           <Route path="/login" component={LoginPage} />

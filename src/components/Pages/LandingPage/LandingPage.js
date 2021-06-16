@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import NavigationBar from '../../NavigationBar/NavigationBar'
 
 import './LandingPage.css'
 const LandingPage = () => {

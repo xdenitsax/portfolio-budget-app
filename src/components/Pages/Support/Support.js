@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import NavigationBar from '../../NavigationBar/NavigationBar'
 import './Support.css'
 const Support = () => {
   return (
     <>
+      <NavigationBar />
       <div className="header-support">
         <h1 className="header-text">We would love to hear from you</h1>
         <p className="header-paragraph">

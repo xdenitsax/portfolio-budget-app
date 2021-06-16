@@ -11,9 +11,28 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  margin-left: 100px;
 }
-
+@media screen and (max-width: 768px) {
+  .home-div {
+    margin-left: 50px;
+  }
+}
+.name-introduction {
+  margin-left: 140px;
+  margin-top: 20px;
+}
+@media screen and (max-width: 1020px) {
+  .name-introduction {
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .name-introduction {
+    margin-left: 70px;
+  }
+}
 /*     ---------------------------------------------------------------      */
 /*                                Your Balance                              */
 /*     ---------------------------------------------------------------      */
@@ -21,12 +40,19 @@
   order: 0;
   height: 200px;
   width: 350px;
-  margin-right: 70px;
+  justify-content: center;
   border-radius: 1rem;
   perspective: 300px;
-  border: 1px solid #94ae3f;
+  box-shadow: 10px 20px 35px rgba(0, 0, 0, 0.11);
   background-color: #24375410;
 }
+@media screen and (max-width: 425px) {
+  .div-balance {
+    height: 200px;
+    width: 280px;
+  }
+}
+
 /* backdrop-filter: blur(1px);
   -webkit-backdrop-filter: blur(10px);
   transform: perspective(800px) rotateY(1deg) scale(0.8) rotateX(1deg);
@@ -119,20 +145,25 @@
   background-color: #24375410;
   order: 1;
   border-radius: 1rem;
-  margin: 60px 0px 0 10px;
+  margin: 60px 40px 0 20px;
   height: 350px;
   width: 250px;
   padding-top: 30px;
   padding-bottom: 30px;
   transform-style: preserve-3d;
   perspective: 300px;
-  box-shadow: 10px 20px 35px rgba(0, 0, 0, 0.185);
+  box-shadow: 10px 20px 35px rgba(0, 0, 0, 0.11);
   /* backdrop-filter: blur(1px);
   -webkit-backdrop-filter: blur(10px);
   transform: perspective(400px) rotateY(1deg) scale(0.8) rotateX(1deg);
   filter: blur(0.1px);
   opacity: 0.7;
   transition: 0.6s ease all; */
+}
+@media screen and (max-width: 720px) {
+  .div-add-new-transaction {
+    margin-left: 50px;
+  }
 }
 /* .div-add-new-transaction:hover {
   transform: perspective(800px) rotateY(-1deg) translateY(-50px) rotateX(1deg)
@@ -306,7 +337,7 @@ input:checked + .slider:before {
   margin-left: 300px;
   margin-right: 300px;
   align-self: flex-end;
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 .text-history {
