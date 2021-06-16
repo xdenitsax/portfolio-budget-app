@@ -56,8 +56,8 @@ const Home = ({ history }) => {
 
   return (
     <>
-      <div></div>
-      <div>{isLoading ? <h1>Loading...</h1> : <h1>Hi, {firstName}!</h1>}</div>
+      <NavigationBar />
+      <div className="name-introduction">{isLoading ? <h1>Loading...</h1> : <h1>Hi, {firstName}!</h1>}</div>
       <div className="home-div">
         {/* -------- Total Balance -------- */}
         <div className="div-balance">

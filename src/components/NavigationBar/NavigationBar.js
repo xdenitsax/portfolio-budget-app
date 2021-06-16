@@ -12,8 +12,7 @@ const NavigationBar = () => {
   return (
     <>
       <div className="provider">
-        <h1 className="header-div-text">EXPENSE TRACKER</h1>=
-        <div className="slider-nav-bar" NavigationBar={NavigationBar}>
+        <div className="slider-nav-bar">
           <div className="slider-wrap">
             {SidebarData.map((item, index) => {
               return (

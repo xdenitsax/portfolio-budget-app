@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 import './About.css'
 const About = () => {
   return (
-    <div>
+    <>
+      <NavigationBar />
       <div className="background-about">
         <div className="image">
           <img className="image-girl" src="./girl-saving.jpg"></img>
@@ -26,7 +27,7 @@ const About = () => {
           <button className="button">Go Back</button>
         </Link>
       </div>
-    </div>
+    </>
   )
 }
 
