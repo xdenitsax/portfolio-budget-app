@@ -3,8 +3,12 @@ import './LoginPage.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { loginUser } from '../../../redux/api'
 import ReusableInput from '../Register/ReusableInput'
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
+import Loader from 'react-loader-spinner'
 
 const LoginPage = ({ history }) => {
+  const isLoading = useSelector(state => state.user.isLoading)
+
   const dispatch = useDispatch()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -49,10 +53,13 @@ const LoginPage = ({ history }) => {
           setErrors={setErrors}
           errors={errors}
         />
-
-        <button type="submit" onClick={handleSubmit}>
-          Submit
-        </button>
+        {isLoading ? (
+          <Loader type="Rings" color="#94ae3f" height={80} width={80} />
+        ) : (
+          <button type="submit" onClick={handleSubmit}>
+            Submit
+          </button>
+        )}
       </form>
     </>
   )
