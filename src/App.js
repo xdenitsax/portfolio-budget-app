@@ -9,8 +9,6 @@ import NavigationBar from './components/NavigationBar/NavigationBar'
 import About from './components/Pages/About/About'
 import Support from './components/Pages/Support/Support'
 import BrandAndLogo from './components/BrandAndLogo/BrandAndLogo'
-import Footer from './components/Footer/Footer'
-import * as reactIconsFa from 'react-icons/fa'
 
 const App = () => {
   return (
