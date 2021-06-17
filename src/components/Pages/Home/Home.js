@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { createTransaction } from '../../../redux/actions/transactionForm'
+import { createTransaction } from '../../../redux/api'
 import { getUserData } from '../../../redux/api'
+import { getUserHistory } from '../../../redux/api'
 import './Home.css'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import NavigationBar from '../../NavigationBar/NavigationBar'
@@ -21,13 +22,17 @@ const Home = ({ history }) => {
   // const history = useSelector(state => state.history)
   const firstName = useSelector(state => state.user.firstName)
   const isLoading = useSelector(state => state.user.isLoading)
+  const category = useSelector(state => state.user.category)
+  const userId = useSelector(state => state.user.userId)
+  const transactions = useSelector(state => state.history.transactions)
+  console.log(transactions)
 
   // Initialize dispatch.
   const dispatch = useDispatch()
 
   const handleSubmit = e => {
     e.preventDefault()
-    dispatch(createTransaction(text, amount, isExpense))
+    dispatch(createTransaction({ title: text, amount, category: 'other', userId }))
   }
 
   useEffect(() => {
@@ -37,22 +42,11 @@ const Home = ({ history }) => {
       if (!token) {
         history.push('/login')
       }
+      console.log('userID', userId)
       dispatch(getUserData(token, userId))
+      dispatch(getUserHistory(userId))
     }
   }, [firstName])
-
-  // useEffect(() => {
-  //   history.forEach(transaction => {
-  //     if (!isExpense) {
-  //       setPositive(positive + transaction.amount)
-  //       setBalance(balance + transaction.amount)
-  //       console.log('BALANCE in useEffect', balance)
-  //     } else if (isExpense) {
-  //       setNegative(negative + transaction.amount)
-  //       setBalance(balance + transaction.amount)
-  //     }
-  //   })
-  // }, [history])
 
   return (
     <>
@@ -80,14 +74,14 @@ const Home = ({ history }) => {
         {/* -------- History -------- */}
         <div className="history-div">
           <h2 className="text-history">History</h2>
-          {/* {history.map((transaction, index) => (
-            // eslint-disable-next-line react/jsx-key
-            <div>
-              <p className="fist-history-div" key={index}>
-                {transaction.text} {transaction.amount}
-              </p>{' '}
+          {transactions.map(transaction => (
+            <div key={transaction._id}>
+              <p className="fist-history-div">
+                {transaction.title} {transaction.amount}
+                {transaction.category}
+              </p>
             </div>
-          ))} */}
+          ))}
         </div>
 
         {/* -------- Add new Transaction -------- */}

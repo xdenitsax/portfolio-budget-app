@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import './Register.css'
 import ReusableInput from './ReusableInput'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { registerUser } from '../../../redux/api'
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
+import Loader from 'react-loader-spinner'
 
 const Register = ({ history }) => {
+  // Redux state.
+  const isLoading = useSelector(state => state.user.isLoading)
+
   // Local state.
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
@@ -44,7 +48,7 @@ const Register = ({ history }) => {
     }
     // If there are no errors submit the form.
     if (!formHasErrors) {
-      dispatch(registerUser({ userInfo: formFields, history }))
+      dispatch(registerUser({ userInfo: formFields, history: history }))
     }
   }
 
@@ -96,7 +100,11 @@ const Register = ({ history }) => {
           setErrors={setErrors}
           errors={errors}
         />
-        <button onClick={handleSubmit}>Register</button>
+        {isLoading ? (
+          <Loader type="Rings" color="#94ae3f" height={80} width={80} />
+        ) : (
+          <button onClick={handleSubmit}>Register</button>
+        )}
       </form>
     </>
   )
