@@ -20,8 +20,7 @@
   }
 }
 .name-introduction {
-  margin-left: 140px;
-  margin-top: 20px;
+  margin: 20px 0 20px 140px;
 }
 @media screen and (max-width: 1020px) {
   .name-introduction {
