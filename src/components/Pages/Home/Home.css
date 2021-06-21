@@ -358,7 +358,7 @@ input:checked + .slider:before {
   background-color: #2437542f;
   margin-bottom: 10px;
   width: 400px;
-  height: 50px;
+  height: 65px;
   border: hidden 1px;
   border-radius: 9px;
   background-color: #24375410;
@@ -372,6 +372,7 @@ input:checked + .slider:before {
   font-size: 20px;
   color: #243754;
   font-family: 'Raleway', sans-serif;
+  flex-grow: 14;
 }
 .transaction-amount {
   margin-right: 10px;
@@ -384,4 +385,17 @@ input:checked + .slider:before {
 }
 .arrow {
   font-size: 15px;
+}
+.bin {
+  background-color: #94ae3f00;
+  font-size: 13px;
+  height: 40px;
+  width: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 25px;
+}
+
+.bin-icons {
+  color: #d81717;
 }

@@ -1,4 +1,4 @@
-import { CREATE_TRANSACTION_SUCCESS, GET_HISTORY_SUCCESS } from '../actionTypes'
+import { CREATE_TRANSACTION_SUCCESS, GET_HISTORY_SUCCESS, DELETE_TRANSACTION_SUCCESS } from '../actionTypes'
 
 const historyReducer = (state = { transactions: [], isLoading: false }, action) => {
   switch (action.type) {
@@ -10,9 +10,13 @@ const historyReducer = (state = { transactions: [], isLoading: false }, action) 
       }
     case CREATE_TRANSACTION_SUCCESS: {
       const transaction = action.payload
-      console.log('state', state)
-
       return { ...state, transactions: [transaction, ...state.transactions] }
+    }
+    case DELETE_TRANSACTION_SUCCESS: {
+      const deletedTransactionId = action.payload
+      const allTransactions = state.transactions
+      const notDeleted = allTransactions.filter(item => item._id !== deletedTransactionId)
+      return { ...state, transactions: notDeleted }
     }
     default:
       return state

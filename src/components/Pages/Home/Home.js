@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { createTransaction } from '../../../redux/api'
-import { getUserData } from '../../../redux/api'
-import { getUserHistory } from '../../../redux/api'
 import './Home.css'
+import { useDispatch, useSelector } from 'react-redux'
+import { createTransaction, getUserHistory, getUserData, deleteTransaction } from '../../../redux/api'
 import NavigationBar from '../../NavigationBar/NavigationBar'
-
 import { RiArrowDropRightLine } from 'react-icons/ri'
 import { BiDollar } from 'react-icons/bi'
+import { TiDelete } from 'react-icons/ti'
 
 const Home = ({ history }) => {
   // Local state.
@@ -21,7 +19,6 @@ const Home = ({ history }) => {
   const isLoading = useSelector(state => state.user.isLoading)
   const userId = useSelector(state => state.user.userId)
   const transactions = useSelector(state => state.history.transactions)
-  console.log(transactions)
 
   // Initialize dispatch.
   const dispatch = useDispatch()
@@ -29,6 +26,11 @@ const Home = ({ history }) => {
   const handleSubmit = e => {
     e.preventDefault()
     dispatch(createTransaction({ title: text, amount, category: 'other', userId, isExpense }))
+  }
+
+  const handleDelete = (event, id) => {
+    event.preventDefault()
+    dispatch(deleteTransaction(id))
   }
 
   // const positiveTransactions = transactions.filter(transaction => transaction.isExpense === false)
@@ -40,7 +42,6 @@ const Home = ({ history }) => {
     // else if the element is Expense return accumulator
     return accumulator
   }, 0)
-  console.log('INCOME', income)
 
   const expenses = transactions.reduce((accumulator, element) => {
     //  if the element is Expense add accumulator and amount, and return
@@ -58,7 +59,7 @@ const Home = ({ history }) => {
       if (!token) {
         history.push('/login')
       }
-      console.log('userID', userId)
+
       dispatch(getUserData(token, userId))
       dispatch(getUserHistory(userId))
     }
@@ -102,6 +103,9 @@ const Home = ({ history }) => {
                     {transaction.isExpense ? `- ${transaction.amount}` : `+ ${transaction.amount}`}
                     <BiDollar className="dolar" />
                   </p>
+                  <button className="bin" onClick={event => handleDelete(event, transaction._id)}>
+                    <TiDelete className="bin-icons" />
+                  </button>
                 </div>
               </div>
             ))}

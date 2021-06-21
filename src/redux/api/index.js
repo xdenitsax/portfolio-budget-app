@@ -1,4 +1,10 @@
-import { createTransactionSuccess, createTransactionPending, createTransactionError } from '../actions/transactionForm'
+import {
+  createTransactionSuccess,
+  createTransactionPending,
+  createTransactionError,
+  deleteTransactionSuccess,
+  deleteTransactionError,
+} from '../actions/transactionForm'
 import {
   registerUserPending,
   registerUserSuccess,
@@ -10,41 +16,6 @@ import {
   getUserDataError,
 } from '../actions/user'
 import { historyUserSuccess, historyUserError } from '../actions/history'
-
-// export const postRequest = (text, amount) => {
-//   return async dispatch => {
-//     const requestPostOptions = {
-//       method: 'GET',
-//       headers: {
-//         'Content-Type': 'application/json',
-//         Accept: 'application/json',
-//       },
-//       body: JSON.stringify({ title: text, amount }),
-//     }
-//     try {
-//       const response = await fetch('http://localhost:5000/create', requestPostOptions)
-//       const parsedJSON = await response.json()
-//       const { title: description, amount, _id: id, date } = parsedJSON
-//       // If response status is 200 dispatch an AddTransaction action.
-//       if (response.status === 200) {
-//         return dispatch(
-//           addTransaction({
-//             description,
-//             amount,
-//             id,
-//             date,
-//           })
-//         )
-//       }
-//       // Else dispatch an error action.
-//       return dispatch(createTransactionError())
-//       // If there is no response from the server (network error, promise doesn't resolve) catch the error.
-//     } catch (error) {
-//       console.log(error)
-//       return dispatch(createTransactionError())
-//     }
-//   }
-// }
 
 export const registerUser = ({ userInfo, history }) => {
   return async dispatch => {
@@ -126,7 +97,6 @@ export const getUserData = (token, userId) => {
       const parsedJSON = await response.json()
       // If response status is 200 dispatch action with user data.
       if (response.status === 200) {
-        console.log('parsedJSON', parsedJSON)
         return dispatch(getUserDataSuccess({ ...parsedJSON, userId }))
       }
       // Else dispatch an error action.
@@ -195,6 +165,33 @@ export const createTransaction = ({ title, amount, category, userId, isExpense }
       console.log(error)
       dispatch(createTransactionError())
       return
+    }
+  }
+}
+
+export const deleteTransaction = id => {
+  return async dispatch => {
+    const requestPostOptions = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+    }
+
+    try {
+      const response = await fetch(`http://localhost:5000/transactions/delete/${id}`, requestPostOptions)
+
+      // If response status is 204 dispatch action delete transaction.
+      if (response.status === 204) {
+        return dispatch(deleteTransactionSuccess(id))
+      }
+      // Else dispatch an error action.
+      return dispatch(deleteTransactionError())
+      // If there is no response from the server (network error, promise doesn't resolve) catch the error.
+    } catch (error) {
+      console.log(error)
+      return dispatch(deleteTransactionError())
     }
   }
 }
