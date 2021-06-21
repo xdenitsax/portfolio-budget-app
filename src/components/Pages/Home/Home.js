@@ -4,25 +4,21 @@ import { createTransaction } from '../../../redux/api'
 import { getUserData } from '../../../redux/api'
 import { getUserHistory } from '../../../redux/api'
 import './Home.css'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import NavigationBar from '../../NavigationBar/NavigationBar'
-import LoginPage from '../LoginPage/LoginPage'
-import Register from '../Register/Register'
-import LandingPage from '../LandingPage/LandingPage'
+
+import { RiArrowDropRightLine } from 'react-icons/ri'
+import { BiDollar } from 'react-icons/bi'
+
 const Home = ({ history }) => {
   // Local state.
   const [text, setText] = useState('')
   const [amount, setAmount] = useState('')
-  const [positive, setPositive] = useState(0)
-  const [negative, setNegative] = useState(0)
-  const [balance, setBalance] = useState(0)
   const [isExpense, setIsExpense] = useState(true)
 
   // Redux state.
   // const history = useSelector(state => state.history)
   const firstName = useSelector(state => state.user.firstName)
   const isLoading = useSelector(state => state.user.isLoading)
-  const category = useSelector(state => state.user.category)
   const userId = useSelector(state => state.user.userId)
   const transactions = useSelector(state => state.history.transactions)
   console.log(transactions)
@@ -32,8 +28,28 @@ const Home = ({ history }) => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    dispatch(createTransaction({ title: text, amount, category: 'other', userId }))
+    dispatch(createTransaction({ title: text, amount, category: 'other', userId, isExpense }))
   }
+
+  // const positiveTransactions = transactions.filter(transaction => transaction.isExpense === false)
+  const income = transactions.reduce((accumulator, element) => {
+    //  if the element is Income add accumulator and amount, and return
+    if (!element.isExpense) {
+      return accumulator + element.amount
+    }
+    // else if the element is Expense return accumulator
+    return accumulator
+  }, 0)
+  console.log('INCOME', income)
+
+  const expenses = transactions.reduce((accumulator, element) => {
+    //  if the element is Expense add accumulator and amount, and return
+    if (element.isExpense) {
+      return accumulator + element.amount
+    }
+    // else if the element is Expense return accumulator
+    return accumulator
+  }, 0)
 
   useEffect(() => {
     if (!firstName) {
@@ -56,17 +72,17 @@ const Home = ({ history }) => {
         {/* -------- Total Balance -------- */}
         <div className="div-balance">
           <h2 className="div-text">YOUR BALANCE</h2>
-          <p className="balance-amount-money">{balance} $</p>
+          <p className="balance-amount-money">{income - expenses} $</p>
 
           {/*  --------  Income -------- */}
           <div className="income-expense-div">
             <div className="income-div">
               <p className="income-text">INCOME</p>
-              <p className="income-amount">{positive} $</p>
+              <p className="income-amount">{income} $</p>
             </div>
             <div className="expense-div">
               <p className="expense-text">EXPENSE</p>
-              <p className="expense-amount">{negative} $</p>
+              <p className="expense-amount">{expenses} $</p>
             </div>
           </div>
         </div>
@@ -74,14 +90,22 @@ const Home = ({ history }) => {
         {/* -------- History -------- */}
         <div className="history-div">
           <h2 className="text-history">History</h2>
-          {transactions.map(transaction => (
-            <div key={transaction._id}>
-              <p className="fist-history-div">
-                {transaction.title} {transaction.amount}
-                {transaction.category}
-              </p>
-            </div>
-          ))}
+          <div>
+            {transactions.map(transaction => (
+              <div key={transaction._id}>
+                <div className="fist-history-div">
+                  <p className="transaction-title">
+                    <RiArrowDropRightLine className="arrow" />
+                    {transaction.title}
+                  </p>
+                  <p className="transaction-amount">
+                    {transaction.isExpense ? `- ${transaction.amount}` : `+ ${transaction.amount}`}
+                    <BiDollar className="dolar" />
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* -------- Add new Transaction -------- */}
@@ -111,6 +135,7 @@ const Home = ({ history }) => {
                 value={amount}
               />
             </div>
+
             <br />
             <button className="button-add-transaction" onClick={e => handleSubmit(e)}>
               Add transaction

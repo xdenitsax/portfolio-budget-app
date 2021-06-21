@@ -9,18 +9,10 @@ const historyReducer = (state = { transactions: [], isLoading: false }, action) 
         isLoading: false,
       }
     case CREATE_TRANSACTION_SUCCESS: {
-      // Converting amount type string to be a number.
-      let numberAmount = parseInt(action.payload.amount)
-      // If isExpense is true, we would like to convert the number to be a negativ one.
-      if (action.payload.isExpense) {
-        numberAmount = numberAmount * -1
-      }
-      // // We declare a variable in which we assign and destructure action. payload
-      // // and we are assining amount type string to be amount type number
-      // const transaction = { ...action.payload, amount: numberAmount }
+      const transaction = action.payload
+      console.log('state', state)
 
-      // return [...state, transaction]
-      return state
+      return { ...state, transactions: [transaction, ...state.transactions] }
     }
     default:
       return state

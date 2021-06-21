@@ -166,7 +166,7 @@ export const getUserHistory = userId => {
   }
 }
 
-export const createTransaction = ({ title, amount, category, userId }) => {
+export const createTransaction = ({ title, amount, category, userId, isExpense }) => {
   return async dispatch => {
     dispatch(createTransactionPending())
     const requestPostOptions = {
@@ -176,14 +176,15 @@ export const createTransaction = ({ title, amount, category, userId }) => {
         Accept: 'application/json',
       },
 
-      body: JSON.stringify({ title, amount, category, userId }),
+      body: JSON.stringify({ title, amount, category, userId, isExpense }),
     }
     try {
       const response = await fetch('http://localhost:5000/transactions/create', requestPostOptions)
 
       if (response.status === 201) {
+        const parsedResponse = await response.json()
         // Redirect user to login page and dispatch a new action.
-        dispatch(createTransactionSuccess({ title, amount, category, userId }))
+        dispatch(createTransactionSuccess(parsedResponse))
         return
       }
       // Else dispatch an error action.
