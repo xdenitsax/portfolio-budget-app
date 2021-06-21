@@ -1,9 +1,9 @@
 import { CREATE_TRANSACTION_SUCCESS, CREATE_TRANSACTION_PENDING, CREATE_TRANSACTION_ERROR } from '../actionTypes'
 
-export const createTransactionSuccess = ({ title, amount, category, userId }) => {
+export const createTransactionSuccess = transaction => {
   return {
     type: CREATE_TRANSACTION_SUCCESS,
-    payload: { title, amount, category, userId },
+    payload: { ...transaction },
   }
 }
 

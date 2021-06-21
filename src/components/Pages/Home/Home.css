@@ -350,19 +350,38 @@ input:checked + .slider:before {
 /*      ------------------ The div in the HISTORY ------------------      */
 
 .fist-history-div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
-  text-align: center;
+  justify-content: space-between;
   background-color: #2437542f;
-  margin-bottom: 7px;
+  margin-bottom: 10px;
   width: 400px;
   height: 50px;
   border: hidden 1px;
   border-radius: 9px;
-  color: #243754;
-  font-family: 'Raleway', sans-serif;
-  font-size: 25px;
-  font-weight: 100;
-  padding-top: 10px;
   background-color: #24375410;
   box-shadow: 10px 3px 10px rgba(0, 0, 0, 0.075);
+}
+.history-div {
+  margin-bottom: 30px;
+}
+.transaction-title {
+  margin-left: 10px;
+  font-size: 20px;
+  color: #243754;
+  font-family: 'Raleway', sans-serif;
+}
+.transaction-amount {
+  margin-right: 10px;
+  font-size: 23px;
+  color: #0f1c2e;
+  font-family: 'Raleway', sans-serif;
+}
+.dolar {
+  font-size: 12px;
+}
+.arrow {
+  font-size: 15px;
 }
