@@ -16,11 +16,12 @@ import {
   getUserDataError,
 } from '../actions/user'
 import { historyUserSuccess, historyUserError } from '../actions/history'
+import { setUserCredentials, getUserCredentials } from '../../utils'
 
 export const registerUser = ({ userInfo, history }) => {
   return async dispatch => {
     dispatch(registerUserPending())
-    const requestPostOptions = {
+    const requestOptions = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -29,7 +30,7 @@ export const registerUser = ({ userInfo, history }) => {
       body: JSON.stringify(userInfo),
     }
     try {
-      const response = await fetch('http://localhost:5000/users/register', requestPostOptions)
+      const response = await fetch('http://localhost:5000/users/register', requestOptions)
       // If response status is 201 dispatch an AddUser action.
       if (response.status === 201) {
         // Redirect user to login page and dispatch a new action.
@@ -52,7 +53,7 @@ export const registerUser = ({ userInfo, history }) => {
 export const loginUser = ({ userInfo, history }) => {
   return async dispatch => {
     dispatch(loginUserPending())
-    const requestPostOptions = {
+    const requestOptions = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -61,15 +62,13 @@ export const loginUser = ({ userInfo, history }) => {
       body: JSON.stringify(userInfo),
     }
     try {
-      const response = await fetch('http://localhost:5000/users/login', requestPostOptions)
+      const response = await fetch('http://localhost:5000/users/login', requestOptions)
       const body = await response.json()
       const { token, userId } = body
       // If response status is 200 dispatch fetch user data action.
       if (response.status === 200) {
-        localStorage.setItem('token', token)
-        localStorage.setItem('userId', userId)
+        setUserCredentials({ token, userId })
         history.push('/home')
-        dispatch(getUserData(token, userId))
         return dispatch(loginUserSuccess(token, userId))
       }
       // Else dispatch an error action.
@@ -82,9 +81,10 @@ export const loginUser = ({ userInfo, history }) => {
   }
 }
 
-export const getUserData = (token, userId) => {
+export const getUserData = history => {
+  const { token, userId } = getUserCredentials()
   return async dispatch => {
-    const requestPostOptions = {
+    const requestOptions = {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -93,11 +93,16 @@ export const getUserData = (token, userId) => {
       },
     }
     try {
-      const response = await fetch(`http://localhost:5000/users/${userId}`, requestPostOptions)
+      const response = await fetch(`http://localhost:5000/users/${userId}`, requestOptions)
       const parsedJSON = await response.json()
       // If response status is 200 dispatch action with user data.
       if (response.status === 200) {
-        return dispatch(getUserDataSuccess({ ...parsedJSON, userId }))
+        dispatch(getUserDataSuccess({ ...parsedJSON, userId }))
+        return
+      }
+      if (response.status === 401) {
+        history.push('/login')
+        return
       }
       // Else dispatch an error action.
       return dispatch(getUserDataError())
@@ -109,18 +114,20 @@ export const getUserData = (token, userId) => {
   }
 }
 
-export const getUserHistory = userId => {
+export const getUserHistory = () => {
+  const { token, userId } = getUserCredentials()
   return async dispatch => {
-    const requestPostOptions = {
+    const requestOptions = {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
+        Token: token,
       },
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/transactions/${userId}`, requestPostOptions)
+      const response = await fetch(`http://localhost:5000/transactions/${userId}`, requestOptions)
       const parsedJSON = await response.json()
       // If response status is 200 dispatch action with user data.
       if (response.status === 200) {
@@ -139,7 +146,7 @@ export const getUserHistory = userId => {
 export const createTransaction = ({ title, amount, category, userId, isExpense }) => {
   return async dispatch => {
     dispatch(createTransactionPending())
-    const requestPostOptions = {
+    const requestOptions = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -149,7 +156,7 @@ export const createTransaction = ({ title, amount, category, userId, isExpense }
       body: JSON.stringify({ title, amount, category, userId, isExpense }),
     }
     try {
-      const response = await fetch('http://localhost:5000/transactions/create', requestPostOptions)
+      const response = await fetch('http://localhost:5000/transactions/create', requestOptions)
 
       if (response.status === 201) {
         const parsedResponse = await response.json()
@@ -171,7 +178,7 @@ export const createTransaction = ({ title, amount, category, userId, isExpense }
 
 export const deleteTransaction = id => {
   return async dispatch => {
-    const requestPostOptions = {
+    const requestOptions = {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -180,7 +187,7 @@ export const deleteTransaction = id => {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/transactions/delete/${id}`, requestPostOptions)
+      const response = await fetch(`http://localhost:5000/transactions/delete/${id}`, requestOptions)
 
       // If response status is 204 dispatch action delete transaction.
       if (response.status === 204) {

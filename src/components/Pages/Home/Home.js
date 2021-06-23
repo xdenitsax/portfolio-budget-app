@@ -53,17 +53,9 @@ const Home = ({ history }) => {
   }, 0)
 
   useEffect(() => {
-    if (!firstName) {
-      const token = localStorage.getItem('token')
-      const userId = localStorage.getItem('userId')
-      if (!token) {
-        history.push('/login')
-      }
-
-      dispatch(getUserData(token, userId))
-      dispatch(getUserHistory(userId))
-    }
-  }, [firstName])
+    dispatch(getUserData(history))
+    dispatch(getUserHistory())
+  }, [])
 
   return (
     <>
