@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './Home.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { createTransaction, getUserHistory, getUserData, deleteTransaction } from '../../../redux/api'
+import { createTransaction, getAllTransactions, getUserData, deleteTransaction } from '../../../redux/api'
 import NavigationBar from '../../NavigationBar/NavigationBar'
 import { RiArrowDropRightLine } from 'react-icons/ri'
 import { BiDollar } from 'react-icons/bi'
@@ -54,7 +54,7 @@ const Home = ({ history }) => {
 
   useEffect(() => {
     dispatch(getUserData(history))
-    dispatch(getUserHistory())
+    dispatch(getAllTransactions())
   }, [])
 
   return (

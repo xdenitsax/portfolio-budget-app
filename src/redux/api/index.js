@@ -114,7 +114,8 @@ export const getUserData = history => {
   }
 }
 
-export const getUserHistory = () => {
+export const getAllTransactions = () => {
+  console.log('getTransactions')
   const { token, userId } = getUserCredentials()
   return async dispatch => {
     const requestOptions = {
@@ -133,6 +134,10 @@ export const getUserHistory = () => {
       if (response.status === 200) {
         return dispatch(historyUserSuccess(parsedJSON))
       }
+      if (response.status === 401) {
+        history.push('/login')
+        return
+      }
       // Else dispatch an error action.
       return dispatch(historyUserError())
       // If there is no response from the server (network error, promise doesn't resolve) catch the error.
@@ -144,6 +149,7 @@ export const getUserHistory = () => {
 }
 
 export const createTransaction = ({ title, amount, category, userId, isExpense }) => {
+  const { token } = getUserCredentials()
   return async dispatch => {
     dispatch(createTransactionPending())
     const requestOptions = {
@@ -151,8 +157,8 @@ export const createTransaction = ({ title, amount, category, userId, isExpense }
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
+        Token: token,
       },
-
       body: JSON.stringify({ title, amount, category, userId, isExpense }),
     }
     try {
@@ -162,6 +168,10 @@ export const createTransaction = ({ title, amount, category, userId, isExpense }
         const parsedResponse = await response.json()
         // Redirect user to login page and dispatch a new action.
         dispatch(createTransactionSuccess(parsedResponse))
+        return
+      }
+      if (response.status === 401) {
+        history.push('/login')
         return
       }
       // Else dispatch an error action.
@@ -176,22 +186,29 @@ export const createTransaction = ({ title, amount, category, userId, isExpense }
   }
 }
 
-export const deleteTransaction = id => {
+export const deleteTransaction = transactionId => {
+  const { token, userId } = getUserCredentials()
   return async dispatch => {
     const requestOptions = {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
+        Token: token,
       },
+      body: JSON.stringify({ userId }),
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/transactions/delete/${id}`, requestOptions)
+      const response = await fetch(`http://localhost:5000/transactions/delete/${transactionId}`, requestOptions)
 
       // If response status is 204 dispatch action delete transaction.
       if (response.status === 204) {
-        return dispatch(deleteTransactionSuccess(id))
+        return dispatch(deleteTransactionSuccess(transactionId))
+      }
+      if (response.status === 401) {
+        history.push('/login')
+        return
       }
       // Else dispatch an error action.
       return dispatch(deleteTransactionError())
