@@ -5,8 +5,12 @@ import {
   LOGIN_USER_PENDING,
   LOGIN_USER_SUCCESS,
   LOGIN_USER_ERROR,
+  GET_USER_DATA_PENDING,
   GET_USER_DATA_SUCCESS,
   GET_USER_DATA_ERROR,
+  LOGOUT_PENDING,
+  LOGOUT_SUCCESS,
+  LOGOUT_ERROR,
 } from '../actionTypes'
 
 export const registerUserPending = () => {
@@ -36,9 +40,16 @@ export const loginUserSuccess = (token, userId) => {
   }
 }
 
-export const loginUserError = () => {
+export const loginUserError = errorMessage => {
   return {
     type: LOGIN_USER_ERROR,
+    errorMessage,
+  }
+}
+
+export const getUserDataPending = () => {
+  return {
+    type: GET_USER_DATA_PENDING,
   }
 }
 
@@ -58,3 +69,15 @@ export const getUserDataError = data => {
     type: GET_USER_DATA_ERROR,
   }
 }
+
+export const logoutPending = () => ({
+  type: LOGOUT_PENDING,
+})
+
+export const logoutSuccess = () => ({
+  type: LOGOUT_SUCCESS,
+})
+
+export const logoutError = () => ({
+  type: LOGOUT_ERROR,
+})

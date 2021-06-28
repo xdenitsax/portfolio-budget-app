@@ -1,3 +1,4 @@
+// Thunk middleware.
 import {
   createTransactionSuccess,
   createTransactionPending,
@@ -12,10 +13,14 @@ import {
   loginUserPending,
   loginUserSuccess,
   loginUserError,
+  getUserDataPending,
   getUserDataSuccess,
   getUserDataError,
+  logoutPending,
+  logoutSuccess,
+  logoutError,
 } from '../actions/user'
-import { historyUserSuccess, historyUserError } from '../actions/history'
+import { getHistoryPending, getHistorySuccess, getHistoryError } from '../actions/history'
 import { setUserCredentials, getUserCredentials } from '../../utils'
 
 export const registerUser = ({ userInfo, history }) => {
@@ -64,19 +69,21 @@ export const loginUser = ({ userInfo, history }) => {
     try {
       const response = await fetch('http://localhost:5000/users/login', requestOptions)
       const body = await response.json()
+      console.log('response body', body)
       const { token, userId } = body
       // If response status is 200 dispatch fetch user data action.
       if (response.status === 200) {
         setUserCredentials({ token, userId })
         history.push('/home')
-        return dispatch(loginUserSuccess(token, userId))
+        dispatch(loginUserSuccess(token, userId))
+        return
       }
-      // Else dispatch an error action.
-      return dispatch(loginUserError())
+      // And dispatch an error action.
+      dispatch(loginUserError(body.message))
       // If there is no response from the server (network error, promise doesn't resolve) catch the error.
     } catch (error) {
       console.log(error)
-      return dispatch(loginUserError())
+      dispatch(loginUserError())
     }
   }
 }
@@ -84,6 +91,7 @@ export const loginUser = ({ userInfo, history }) => {
 export const getUserData = history => {
   const { token, userId } = getUserCredentials()
   return async dispatch => {
+    dispatch(getUserDataPending())
     const requestOptions = {
       method: 'GET',
       headers: {
@@ -101,11 +109,10 @@ export const getUserData = history => {
         return
       }
       if (response.status === 401) {
-        history.push('/login')
-        return
+        history.push('/welcome')
       }
-      // Else dispatch an error action.
-      return dispatch(getUserDataError())
+      // And dispatch an error action.
+      dispatch(getUserDataError())
       // If there is no response from the server (network error, promise doesn't resolve) catch the error.
     } catch (error) {
       console.log(error)
@@ -114,10 +121,10 @@ export const getUserData = history => {
   }
 }
 
-export const getAllTransactions = () => {
-  console.log('getTransactions')
+export const getAllTransactions = history => {
   const { token, userId } = getUserCredentials()
   return async dispatch => {
+    dispatch(getHistoryPending())
     const requestOptions = {
       method: 'GET',
       headers: {
@@ -132,23 +139,22 @@ export const getAllTransactions = () => {
       const parsedJSON = await response.json()
       // If response status is 200 dispatch action with user data.
       if (response.status === 200) {
-        return dispatch(historyUserSuccess(parsedJSON))
+        return dispatch(getHistorySuccess(parsedJSON))
       }
       if (response.status === 401) {
-        history.push('/login')
-        return
+        history.push('/welcome')
       }
-      // Else dispatch an error action.
-      return dispatch(historyUserError())
+      // And dispatch an error action.
+      dispatch(getHistoryError())
       // If there is no response from the server (network error, promise doesn't resolve) catch the error.
     } catch (error) {
       console.log(error)
-      return dispatch(historyUserError())
+      return dispatch(getHistoryError())
     }
   }
 }
 
-export const createTransaction = ({ title, amount, category, userId, isExpense }) => {
+export const createTransaction = ({ title, amount, category, userId, isExpense, history }) => {
   const { token } = getUserCredentials()
   return async dispatch => {
     dispatch(createTransactionPending())
@@ -171,7 +177,7 @@ export const createTransaction = ({ title, amount, category, userId, isExpense }
         return
       }
       if (response.status === 401) {
-        history.push('/login')
+        history.push('/welcome')
         return
       }
       // Else dispatch an error action.
@@ -186,7 +192,7 @@ export const createTransaction = ({ title, amount, category, userId, isExpense }
   }
 }
 
-export const deleteTransaction = transactionId => {
+export const deleteTransaction = (transactionId, history) => {
   const { token, userId } = getUserCredentials()
   return async dispatch => {
     const requestOptions = {
@@ -207,7 +213,7 @@ export const deleteTransaction = transactionId => {
         return dispatch(deleteTransactionSuccess(transactionId))
       }
       if (response.status === 401) {
-        history.push('/login')
+        history.push('/welcome')
         return
       }
       // Else dispatch an error action.
@@ -216,6 +222,34 @@ export const deleteTransaction = transactionId => {
     } catch (error) {
       console.log(error)
       return dispatch(deleteTransactionError())
+    }
+  }
+}
+
+export const logout = history => {
+  const { token, userId } = getUserCredentials()
+  return async dispatch => {
+    dispatch(logoutPending())
+    const requestOptions = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Token: token,
+      },
+    }
+
+    try {
+      const response = await fetch(`http://localhost:5000/users/logout/${userId}`, requestOptions)
+      console.log('response', response)
+      if (response.status === 204) {
+        history.push('/welcome')
+        dispatch(logoutSuccess())
+        return
+      }
+      dispatch(logoutError())
+    } catch (error) {
+      console.log(error)
     }
   }
 }

@@ -58,3 +58,7 @@
 input:focus {
   outline: none;
 }
+
+.error-message {
+  color: #ff0000;
+}

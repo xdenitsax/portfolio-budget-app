@@ -1,9 +1,14 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import NavigationBar from '../../NavigationBar/NavigationBar'
+import { loginUser } from '../../../redux/api'
 
 import './LandingPage.css'
-const LandingPage = () => {
+
+const LandingPage = ({ history }) => {
+  //  Initialize dispatch.
+  const dispatch = useDispatch()
+
   return (
     <>
       <div className="form-firstPage">
@@ -16,9 +21,12 @@ const LandingPage = () => {
             <input type="button" value="REGISTER AN ACOUNT!" className="button-register-page"></input>
           </Link>
           <br />
-          <Link to="./home">
-            <input type="button" value="GUEST ACCOUNT!" className="button-guest-account"></input>
-          </Link>
+          <input
+            type="button"
+            value="GUEST ACCOUNT!"
+            className="button-guest-account"
+            onClick={() => dispatch(loginUser({ userInfo: { username: 'guest', password: '12345' }, history }))}
+          ></input>
         </form>
       </div>
     </>

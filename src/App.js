@@ -3,9 +3,8 @@ import LoginPage from './components/Pages/LoginPage/LoginPage'
 import Register from './components/Pages/Register/Register'
 import LandingPage from './components/Pages/LandingPage/LandingPage'
 import Home from './components/Pages/Home/Home'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import './App.css'
-import NavigationBar from './components/NavigationBar/NavigationBar'
 import About from './components/Pages/About/About'
 import Support from './components/Pages/Support/Support'
 import BrandAndLogo from './components/BrandAndLogo/BrandAndLogo'
@@ -16,12 +15,13 @@ const App = () => {
       <BrandAndLogo />
       <Router>
         <Switch>
-          <Route path="/" exact component={LandingPage} />
+          <Route path="/welcome" exact component={LandingPage} />
           <Route path="/login" component={LoginPage} />
           <Route path="/register" component={Register} />
           <Route path="/home" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/support" component={Support} />
+          <Redirect from="/" to={'/welcome'} />
         </Switch>
       </Router>
       <footer>

@@ -399,3 +399,10 @@ input:checked + .slider:before {
 .bin-icons {
   color: #d81717;
 }
+
+.home-spinner-container {
+  display: flex;
+  align-items: center;
+  height: 70vh;
+  justify-content: center;
+}

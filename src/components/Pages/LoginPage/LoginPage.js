@@ -8,6 +8,7 @@ import Loader from 'react-loader-spinner'
 
 const LoginPage = ({ history }) => {
   const isLoading = useSelector(state => state.user.isLoading)
+  const errorMessage = useSelector(state => state.user.errorMessage)
 
   const dispatch = useDispatch()
   const [username, setUsername] = useState('')
@@ -53,6 +54,7 @@ const LoginPage = ({ history }) => {
           setErrors={setErrors}
           errors={errors}
         />
+        {errorMessage ? <p className="error-message">{errorMessage}</p> : null}
         {isLoading ? (
           <Loader type="Rings" color="#94ae3f" height={80} width={80} />
         ) : (
