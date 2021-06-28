@@ -35,7 +35,7 @@ export const registerUser = ({ userInfo, history }) => {
       body: JSON.stringify(userInfo),
     }
     try {
-      const response = await fetch('http://localhost:5000/users/register', requestOptions)
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/users/register`, requestOptions)
       // If response status is 201 dispatch an AddUser action.
       if (response.status === 201) {
         // Redirect user to login page and dispatch a new action.
@@ -67,7 +67,7 @@ export const loginUser = ({ userInfo, history }) => {
       body: JSON.stringify(userInfo),
     }
     try {
-      const response = await fetch('http://localhost:5000/users/login', requestOptions)
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/users/login`, requestOptions)
       const body = await response.json()
       console.log('response body', body)
       const { token, userId } = body
@@ -101,7 +101,7 @@ export const getUserData = history => {
       },
     }
     try {
-      const response = await fetch(`http://localhost:5000/users/${userId}`, requestOptions)
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/users/${userId}`, requestOptions)
       const parsedJSON = await response.json()
       // If response status is 200 dispatch action with user data.
       if (response.status === 200) {
@@ -135,7 +135,7 @@ export const getAllTransactions = history => {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/transactions/${userId}`, requestOptions)
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/transactions/${userId}`, requestOptions)
       const parsedJSON = await response.json()
       // If response status is 200 dispatch action with user data.
       if (response.status === 200) {
@@ -168,7 +168,7 @@ export const createTransaction = ({ title, amount, category, userId, isExpense, 
       body: JSON.stringify({ title, amount, category, userId, isExpense }),
     }
     try {
-      const response = await fetch('http://localhost:5000/transactions/create', requestOptions)
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/transactions/create`, requestOptions)
 
       if (response.status === 201) {
         const parsedResponse = await response.json()
@@ -206,7 +206,10 @@ export const deleteTransaction = (transactionId, history) => {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/transactions/delete/${transactionId}`, requestOptions)
+      const response = await fetch(
+        `${process.env.REACT_APP_SERVER_URL}/transactions/delete/${transactionId}`,
+        requestOptions
+      )
 
       // If response status is 204 dispatch action delete transaction.
       if (response.status === 204) {
@@ -240,7 +243,7 @@ export const logout = history => {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/users/logout/${userId}`, requestOptions)
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/users/logout/${userId}`, requestOptions)
       console.log('response', response)
       if (response.status === 204) {
         history.push('/welcome')
