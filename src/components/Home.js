@@ -244,8 +244,8 @@ const InputTransactionText = styled.input`
   color: #243754;
   height: 40px;
   width: 300px;
-  border: hidden;
-  box-shadow: #c5c5c5 0px 1px 7px -3px, #c5c5c5 0px 1px 3px 0px;
+  padding: 10px;
+  border: 1px solid #243754;
   border-radius: 9px;
   text-align: center;
   &:focus {
@@ -311,8 +311,8 @@ const InputTextAmount = styled.input`
   color: #243754;
   height: 40px;
   width: 300px;
-  border: hidden;
-  box-shadow: #c5c5c5 0px 1px 7px -3px, #c5c5c5 0px 1px 3px 0px;
+  padding: 10px;
+  border: 1px solid #243754;
   border-radius: 9px;
   text-align: center;
   &:focus {
