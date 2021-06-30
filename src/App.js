@@ -1,33 +1,51 @@
 import React from 'react'
-import LoginPage from './components/Pages/LoginPage/LoginPage'
-import Register from './components/Pages/Register/Register'
-import LandingPage from './components/Pages/LandingPage/LandingPage'
+import LoginPage from './components/LoginPage'
+import Register from './components/Register'
+import LandingPage from './components/LandingPage'
 import Home from './components/Pages/Home/Home'
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
-import './App.css'
-import About from './components/Pages/About/About'
-import Support from './components/Pages/Support/Support'
-import BrandAndLogo from './components/BrandAndLogo/BrandAndLogo'
+import About from './components/About'
+import Support from './components/Support'
+import BrandAndLogo from './components/BrandAndLogo'
+import styled from 'styled-components'
+
+const Content = styled.div``
+
+const FooterParagraph = styled.p`
+  color: #ffffff;
+  font-size: 12px;
+  margin-top: 0.5rem;
+  text-align: center;
+`
+const Footer = styled.footer`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2rem;
+  background-color: #94ae3f9a;
+`
 
 const App = () => {
   return (
-    <div className="app-div">
-      <BrandAndLogo />
-      <Router>
-        <Switch>
-          <Route path="/welcome" exact component={LandingPage} />
-          <Route path="/login" component={LoginPage} />
-          <Route path="/register" component={Register} />
-          <Route path="/home" component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/support" component={Support} />
-          <Redirect from="/" to={'/welcome'} />
-        </Switch>
-      </Router>
-      <footer>
-        <p className="footer-paragraph">®Expense Tracker MMXX</p>
-      </footer>
-    </div>
+    <>
+      <Content>
+        <BrandAndLogo />
+        <Router>
+          <Switch>
+            <Route path="/welcome" exact component={LandingPage} />
+            <Route path="/login" component={LoginPage} />
+            <Route path="/register" component={Register} />
+            <Route path="/home" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/support" component={Support} />
+            <Redirect from="/" to={'/welcome'} />
+          </Switch>
+        </Router>
+        <Footer>
+          <FooterParagraph>®Expense Tracker MMXX</FooterParagraph>
+        </Footer>
+      </Content>
+    </>
   )
 }
 

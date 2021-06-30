@@ -4,7 +4,7 @@ import * as reactIconsAi from 'react-icons/ai'
 import * as reactIconsIo from 'react-icons/io'
 import * as reactIconsRi from 'react-icons/ri'
 
-import { logout } from '../../redux/api'
+import { logout } from '../redux/api'
 
 export const SidebarData = [
   {

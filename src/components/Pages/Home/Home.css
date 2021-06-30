@@ -1,7 +1,7 @@
 /*     ---------------------------------------------------------------      */
 /*                                Whole body div                            */
 /*     ---------------------------------------------------------------      */
-* {
+/* * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -31,11 +31,11 @@
   .name-introduction {
     margin-left: 70px;
   }
-}
+} */
 /*     ---------------------------------------------------------------      */
 /*                                Your Balance                              */
 /*     ---------------------------------------------------------------      */
-.div-balance {
+/* .div-balance {
   order: 0;
   height: 200px;
   width: 350px;
@@ -50,7 +50,7 @@
     height: 200px;
     width: 280px;
   }
-}
+} */
 
 /* backdrop-filter: blur(1px);
   -webkit-backdrop-filter: blur(10px);
@@ -75,7 +75,7 @@
   }
 } */
 
-.div-text {
+/* .div-text {
   text-align: center;
   color: #243754;
   font-family: 'Karla', sans-serif;
@@ -90,12 +90,12 @@
   font-family: 'Karla', sans-serif;
   font-size: 30px;
   margin-top: 10px;
-}
+} */
 
 /*     ---------------------------------------------------------------      */
 /*                             Income and Expenses                          */
 /*     ---------------------------------------------------------------      */
-.income-expense-div {
+/* .income-expense-div {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -134,13 +134,13 @@
   color: rgba(184, 4, 4, 0.94);
   font-family: 'Karla', sans-serif;
   font-size: 22px;
-}
+} */
 
 /*     ---------------------------------------------------------------      */
 /*                              Add Transaction                             */
 /*     ---------------------------------------------------------------      */
 
-.div-add-new-transaction {
+/* .div-add-new-transaction {
   background-color: #24375410;
   order: 1;
   border-radius: 1rem;
@@ -151,19 +151,19 @@
   padding-bottom: 30px;
   transform-style: preserve-3d;
   perspective: 300px;
-  box-shadow: 10px 20px 35px rgba(0, 0, 0, 0.11);
-  /* backdrop-filter: blur(1px);
+  box-shadow: 10px 20px 35px rgba(0, 0, 0, 0.11); */
+/* backdrop-filter: blur(1px);
   -webkit-backdrop-filter: blur(10px);
   transform: perspective(400px) rotateY(1deg) scale(0.8) rotateX(1deg);
   filter: blur(0.1px);
   opacity: 0.7;
   transition: 0.6s ease all; */
-}
+/* }
 @media screen and (max-width: 720px) {
   .div-add-new-transaction {
     margin-left: 50px;
   }
-}
+} */
 /* .div-add-new-transaction:hover {
   transform: perspective(800px) rotateY(-1deg) translateY(-50px) rotateX(1deg)
     scale(1);
@@ -177,7 +177,7 @@
   }
 } */
 
-.text-add-new-transaction {
+/* .text-add-new-transaction {
   text-align: center;
   color: #243754;
   font-family: 'Karla', sans-serif;
@@ -218,10 +218,10 @@
   height: 30px;
   border-style: none;
   background-color: #243754;
-}
+} */
 
 /* --------- Button add-transaction --------- */
-.button-add-transaction {
+/* .button-add-transaction {
   margin-top: 10px;
   margin-bottom: 80px;
   margin-left: 65px;
@@ -234,12 +234,12 @@
   font-family: 'Raleway', sans-serif;
   font-size: 14px;
   font-weight: bolder;
-}
+} */
 
 /*     ---------------------------------------------------------------      */
 /*                               SWITCH BUTTON                              */
 /*     ---------------------------------------------------------------      */
-.switch-div {
+/* .switch-div {
   margin-top: 15px;
   display: flex;
   flex-direction: row;
@@ -297,10 +297,10 @@ input:checked + .slider:before {
   -webkit-transform: translateX(20px);
   -ms-transform: translateX(15px);
   transform: translateX(15px);
-}
+} */
 
 /*  --------- Rounded sliders --------- */
-.slider.round {
+/* .slider.round {
   border-radius: 34px;
   border: hidden;
 }
@@ -308,9 +308,9 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
   border: hidden;
-}
+} */
 /* --------- Text around the switch button --------- */
-.switch-text {
+/* .switch-text {
   font-weight: bold;
   text-align: left;
   margin-left: 10px;
@@ -326,12 +326,12 @@ input:checked + .slider:before {
   margin-right: 10px;
   background-color: #2437542f;
   box-shadow: 10px 16px 45px #2437542f;
-}
+} */
 
 /*     ---------------------------------------------------------------      */
 /*                                   History                                */
 /*     ---------------------------------------------------------------      */
-.history-div {
+/* .history-div {
   order: 2;
   margin-left: 300px;
   margin-right: 300px;
@@ -345,10 +345,10 @@ input:checked + .slider:before {
   font-family: 'Raleway', sans-serif;
   font-size: 30px;
   margin-bottom: 15px;
-}
+} */
 
 /*      ------------------ The div in the HISTORY ------------------      */
-
+/* 
 .fist-history-div {
   display: flex;
   flex-direction: row;
@@ -364,6 +364,7 @@ input:checked + .slider:before {
   background-color: #24375410;
   box-shadow: 10px 3px 10px rgba(0, 0, 0, 0.075);
 }
+
 .history-div {
   margin-bottom: 30px;
 }
@@ -405,4 +406,4 @@ input:checked + .slider:before {
   align-items: center;
   height: 70vh;
   justify-content: center;
-}
+} */

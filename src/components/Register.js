@@ -1,11 +1,32 @@
 import React, { useState } from 'react'
-import './Register.css'
 import ReusableInput from './ReusableInput'
 import { useDispatch, useSelector } from 'react-redux'
-import { registerUser } from '../../../redux/api'
+import { registerUser } from '../redux/api'
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 import Loader from 'react-loader-spinner'
+import styled from 'styled-components'
 
+// STYLE//
+const Form = styled.form`
+  text-align: center;
+  margin-top: 50px;
+`
+
+const RegisterButton = styled.button`
+  border-radius: 1rem;
+  font-family: 'Raleway', sans-serif;
+  color: #1f1d08;
+  perspective: 300px;
+  box-shadow: 15px 22px 45px rgba(0, 0, 0, 0.055);
+  width: 150px;
+  height: 45px;
+  background-color: #94ae3f;
+  border-style: hidden;
+  border-radius: 5px;
+  font-size: 17px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+`
 const Register = ({ history }) => {
   // Redux state.
   const isLoading = useSelector(state => state.user.isLoading)
@@ -54,7 +75,7 @@ const Register = ({ history }) => {
 
   return (
     <>
-      <form className="form-expense-div">
+      <Form>
         <ReusableInput
           title="First Name"
           name="firstName"
@@ -103,9 +124,9 @@ const Register = ({ history }) => {
         {isLoading ? (
           <Loader type="Rings" color="#94ae3f" height={80} width={80} />
         ) : (
-          <button onClick={handleSubmit}>Register</button>
+          <RegisterButton onClick={handleSubmit}>Register</RegisterButton>
         )}
-      </form>
+      </Form>
     </>
   )
 }

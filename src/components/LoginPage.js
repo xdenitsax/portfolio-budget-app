@@ -1,10 +1,32 @@
 import React, { useState } from 'react'
-import './LoginPage.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { loginUser } from '../../../redux/api'
-import ReusableInput from '../Register/ReusableInput'
+import { loginUser } from '../redux/api'
+import ReusableInput from './ReusableInput'
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 import Loader from 'react-loader-spinner'
+import styled from 'styled-components'
+
+const Form = styled.form`
+  text-align: center;
+  margin-top: 200px;
+`
+
+const ErroeMessage = styled.p``
+const SubmitButton = styled.button`
+  border-radius: 1rem;
+  color: #101321;
+  perspective: 300px;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2);
+  width: 150px;
+  height: 50px;
+  background-color: #94ae3f;
+  border-style: hidden;
+  border-radius: 5px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 17px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+`
 
 const LoginPage = ({ history }) => {
   const isLoading = useSelector(state => state.user.isLoading)
@@ -35,7 +57,7 @@ const LoginPage = ({ history }) => {
 
   return (
     <>
-      <form className="form-div">
+      <Form>
         <ReusableInput
           title="Username"
           name="username"
@@ -54,15 +76,13 @@ const LoginPage = ({ history }) => {
           setErrors={setErrors}
           errors={errors}
         />
-        {errorMessage ? <p className="error-message">{errorMessage}</p> : null}
+        {errorMessage ? <ErroeMessage>{errorMessage}</ErroeMessage> : null}
         {isLoading ? (
           <Loader type="Rings" color="#94ae3f" height={80} width={80} />
         ) : (
-          <button type="submit" onClick={handleSubmit}>
-            Submit
-          </button>
+          <SubmitButton onClick={handleSubmit}>Log in</SubmitButton>
         )}
-      </form>
+      </Form>
     </>
   )
 }
