@@ -16,10 +16,15 @@ const HeaderText = styled.h1`
   color: #688801;
   margin-bottom: 20px;
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  @media (max-width: 425px) {
+    font-size: 18px;
+  }
 `
 const HeaderParagrpah = styled.p`
   font-size: 14px;
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
   @media (max-width: 879px) {
     font-size: 12px;
   }
@@ -31,7 +36,6 @@ const FormContainer = styled.form`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-
   margin-top: 40px;
 `
 
@@ -41,30 +45,44 @@ const FormHeader = styled.h1`
   color: #688801;
   margin-bottom: 20px;
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
+
+  @media (max-width: 425px) {
+    font-size: 16px;
+  }
 `
 const FormParagraph = styled.p`
   justify-content: center;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   padding: 5px;
+
+  @media (max-width: 425px) {
+    font-size: 14px;
+  }
 `
 
 const FormInput = styled.input`
-align-items: center;
-width: 25vh;
-box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.082);
-font-family: 'Raleway', sans-serif;
-background-color: #dbded9;
-height: 40px;
-border-style: hidden;
-border-radius: 5px;
-font-size: 14px;
-margin-top: 10px;
-margin-bottom: 5px;
-padding: 0 5px;
-&:focus {
-  outline: none;
+  align-items: center;
+  width: 25vh;
+  box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.082);
+  box-shadow: #c5c5c5 0px 1px 7px -3px, #c5c5c5 0px 1px 3px 0px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #dbded9;
+  height: 40px;
+  border-style: hidden;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  padding: 0 5px;
 
-  width: 200px;
+  &:focus {
+    outline: none;
+  }
+
+  @media (max-width: 460px) {
+    width: 20vh;
+  }
 `
 const FormInputMessage = styled.input`
   height: 200px;
@@ -73,19 +91,19 @@ const FormInputMessage = styled.input`
   text-align: start;
   align-items: center;
   box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.082);
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background-color: #dbded9;
   border-style: hidden;
   border-radius: 5px;
   font-size: 14px;
-
+  box-shadow: #c5c5c5 0px 1px 7px -3px, #c5c5c5 0px 1px 3px 0px;
   padding: 0 5px;
   &:focus {
     outline: none;
   }
   @media (max-width: 460px) {
     height: 150px;
-    width: 250px;
+    width: 200px;
   }
 `
 
@@ -93,27 +111,35 @@ const ButtonSend = styled.button`
   margin-top: 60px;
   color: #101321;
   border-radius: 1rem;
-  box-shadow: 15px 19px 45px rgba(0, 0, 0, 0.166);
   width: 180px;
   height: 50px;
   background-color: #94ae3f;
   border-style: hidden;
   border-radius: 5px;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 15px;
+  box-shadow: #c5c5c5 0px 1px 7px -3px, #c5c5c5 0px 1px 3px 0px;
+
+  @media (max-width: 425px) {
+    width: 150px;
+  }
 `
 const ButtonBack = styled.button`
   margin-top: 20px;
   color: #101321;
   border-radius: 1rem;
-  box-shadow: 15px 19px 45px rgba(0, 0, 0, 0.166);
+  box-shadow: #c5c5c5 0px 1px 7px -3px, #c5c5c5 0px 1px 3px 0px;
   width: 130px;
   height: 50px;
   background-color: #94ae3f;
   border-style: hidden;
   border-radius: 5px;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 15px;
+
+  @media (max-width: 425px) {
+    width: 100px;
+  }
 `
 
 const Support = () => {
@@ -126,7 +152,7 @@ const Support = () => {
           Whether you have a question about features or anything else, our team is ready to answer all you questions.
         </HeaderParagrpah>
         <FormContainer>
-          <FormHeader>Ger in touch with us</FormHeader>
+          <FormHeader>Get in touch with us</FormHeader>
           <FormParagraph> Your name:</FormParagraph>
           <FormInput type="text" />
           <FormParagraph>Your email:</FormParagraph>

@@ -9,6 +9,7 @@ const ContainerAboutUs = styled.div`
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
+
   @media screen and (max-width: 1200px) {
     flex-direction: column;
   }
@@ -43,6 +44,7 @@ const TextContainer = styled.div`
   width: 40vh;
   display: flex;
   justify-content: center;
+  font-family: 'Montserrat', sans-serif;
   align-self: center;
   flex-wrap: wrap;
   text-align: justify;
@@ -83,7 +85,7 @@ const Button = styled.button`
   font-size: 13px;
   height: 40px;
   width: 120px;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   border-radius: 6px;
   outline: none;
   border: hidden;

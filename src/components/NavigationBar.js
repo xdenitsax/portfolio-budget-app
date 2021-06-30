@@ -13,8 +13,9 @@ const Provider = styled.div`
   transition: 550ms;
   width: 90px;
   height: 90vh;
-  margin-right: 20px;
 
+  margin-right: 20px;
+  font-family: 'Montserrat', sans-serif;
   top: 0;
   @media (max-width: 768px) {
     margin-right: 0px;
@@ -48,7 +49,8 @@ const SidebarLink = styled.div`
   align-items: center;
   list-style: none;
   height: 60px;
-  font-size: 16px;
+  font-size: 14px;
+  padding: 10px;
 
   &:hover {
     cursor: pointer;
@@ -75,8 +77,8 @@ const NavigationBar = ({ history }) => {
 
   return (
     <>
-      <Provider>
-        <SliderNavBar>
+      <Provider className="nav-provider">
+        <SliderNavBar className="nav-bar">
           <SliderWrap>
             {SidebarData.map((item, index) => {
               return (

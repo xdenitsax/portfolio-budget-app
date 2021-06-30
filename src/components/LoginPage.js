@@ -22,7 +22,7 @@ const SubmitButton = styled.button`
   background-color: #94ae3f;
   border-style: hidden;
   border-radius: 5px;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 17px;
   margin-top: 10px;
   margin-bottom: 20px;

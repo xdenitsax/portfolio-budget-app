@@ -14,7 +14,7 @@ const Form = styled.form`
 
 const RegisterButton = styled.button`
   border-radius: 1rem;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: #1f1d08;
   perspective: 300px;
   box-shadow: 15px 22px 45px rgba(0, 0, 0, 0.055);
@@ -24,7 +24,7 @@ const RegisterButton = styled.button`
   border-style: hidden;
   border-radius: 5px;
   font-size: 17px;
-  margin-top: 10px;
+  margin-top: 50px;
   margin-bottom: 20px;
 `
 const Register = ({ history }) => {

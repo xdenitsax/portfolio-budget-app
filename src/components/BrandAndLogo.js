@@ -5,9 +5,10 @@ const Header = styled.div``
 const HeaderText = styled.h3`
 text-align: center;
 justify-content: center;
-margin-left: 20px;
+margin-left: 40px;
 color: #94ae3f; 
-font-family: 'Exo 2', sans-serif;
+font-family: 'Lora', serif;
+
 font-size: 33px;
 @media (max-width: 768px) {
     font-size: 23px;}
